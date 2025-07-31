@@ -58,7 +58,7 @@ textarea.input-field {
     padding: 0.8em;
     resize:none; 
     min-height: 150px;
-    margin-top: 20px;;
+    margin-top: 20px;
 }
 textarea.input-field:focus {
     border: 2px solid rgb(206, 176, 241);

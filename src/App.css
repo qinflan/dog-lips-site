@@ -1,15 +1,18 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.page-content-container {
+  max-width: 1920px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  align-items: center;
+  justify-self: center;
 }
 
 .card {
   padding: 2em;
-}
-
-.spotify-widget {
-  outline: none;
-  border: none;
 }
