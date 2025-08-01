@@ -36,6 +36,21 @@
     transition: opacity 0.2s ease-in-out;
 }
 
+.mobile-nav-btn {
+    background-color: var(--page-background);
+    color: var(--icon);
+    cursor: pointer;
+    padding: 0.3rem;
+    border-radius: 0.375rem;
+    transition: 0.3s;
+}
+
+.mobile-nav-btn:hover {
+    background-color: var(--icon);
+    color: var(--page-background);
+    transition: 0.3s;
+}
+
 .mobile-menu-dropdown {
     display: flex;
     flex-direction: column;

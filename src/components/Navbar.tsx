@@ -5,6 +5,8 @@ import { IoClose } from "react-icons/io5";
 import { TbMenu } from "react-icons/tb";
 import { NavLink } from 'react-router'
 import { DynamicLogo } from './theme/DynamicLogo'
+import { MdOutlineMenu } from "react-icons/md";
+
 
 const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -83,8 +85,8 @@ const Navbar = () => {
 
             {/* Mobile Menu Button */}
             <div className="mobile-nav-container" ref={menuRef}>
-                <button className="bg-[var(--page-foreground)] rounded-lg border border-widget-stroke text-[var(--icon)] cursor-pointer p-1.5" onClick={toggleMobileMenu}>
-                    {isMobileMenuOpen ? <IoClose size={20} /> : <TbMenu size={20} />}
+                <button className="mobile-nav-btn" onClick={toggleMobileMenu}>
+                    {isMobileMenuOpen ? <IoClose size={30} /> : <MdOutlineMenu  size={30} />}
                 </button>
                 <AnimatePresence>
                   {isMobileMenuOpen && (
