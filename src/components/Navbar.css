@@ -16,19 +16,37 @@
 
 .nav-menu-container {
     display: flex;
-    gap: 30px;
+    gap: 20px;
     align-items: center;
     text-decoration: none;
 }
 
 .nav-link {
-    color: white;
+    color: var(--nav-text);
     text-decoration: none;
     font-size: larger;
+    font-family: "eurostile", sans-serif;
+    font-weight: 700;
+    font-style: normal;
 }
 
 .nav-link:hover {
     opacity: 80%;
-    color: white
 }
 
+
+.mobile-nav-container {
+    display: none;
+}
+
+
+@media (max-width: 980px) {
+    .mobile-nav-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-menu-container {
+        display: none;
+    }
+}
