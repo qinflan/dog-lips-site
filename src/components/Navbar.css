@@ -29,11 +29,36 @@
     font-family: "eurostile", sans-serif;
     font-weight: 700;
     font-style: normal;
+    user-select: none;
 }
 
 .nav-link:hover {
     opacity: 80%;
     transition: opacity 0.2s ease-in-out;
+}
+
+.nav-link span {
+  position: relative;
+  z-index: 1;
+}
+
+.nav-link span::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0; right: 0; bottom: -5px;
+  height: 2px;
+  background: var(--nav-text);
+  border-radius: 1px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(.6,0,.2,1);
+  z-index: 0;
+}
+
+.nav-link:hover span::after,
+.nav-link.active span::after {
+  transform: scaleX(1);
 }
 
 .mobile-nav-btn {

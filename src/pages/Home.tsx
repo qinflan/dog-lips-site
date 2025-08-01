@@ -5,9 +5,9 @@ const Home = () => {
   return (
     <div>
       <div className="page-content-container">
-        <div className="spotify-widget-container">
+        <div className="spotify-widget-container" style={{width: "100%", background: "var(--page-background)", overflow: "hidden", borderRadius: "15px"}}>
           <iframe
-            style={{ borderRadius: '15px', border: 'none', overflow: 'hidden', width: '100%' }}
+            style={{ border: 'none', overflow: 'hidden', width: '100%'}}
             src="https://open.spotify.com/embed/artist/1L23rbDqrblJpid1WJkBVE?utm_source=generator&theme=0"
             width="100%"
             height="400"
