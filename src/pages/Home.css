@@ -1,0 +1,14 @@
+.spotify-widget-container {
+    margin-top: 100px;
+    position: relative;
+    width: 60%;
+    user-select: none;
+}
+
+
+
+@media (max-width: 768px) {
+    .spotify-widget-container {
+        width: 100%;
+    }
+}

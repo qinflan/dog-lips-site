@@ -7,6 +7,7 @@
     align-items: center;
     padding: 0 4rem;
     justify-content: space-between;
+    z-index: 1000;
 }
 
 .logo-container {
@@ -31,6 +32,40 @@
 }
 
 .nav-link:hover {
+    opacity: 80%;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.mobile-menu-dropdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    background-color: var(--page-background);
+    transform-origin: top;
+    inset: 0;
+    top: 120px;
+}
+
+.mobile-nav-link-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20%;
+}
+
+.mobile-nav-link {
+    color: var(--nav-text);
+    text-decoration: none;
+    font-size: larger;
+    font-family: "eurostile", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 4em;
+    line-height: 1.1em;
+    letter-spacing: -0.02em;
+}
+
+.mobile-nav-link:hover {
     opacity: 80%;
 }
 

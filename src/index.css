@@ -15,6 +15,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+::selection {
+  background: var(--primary-text);
+  color: var(--page-background);
+}
+
 /* Global CSS Colors by Theme*/
 /* ------------------------------------------------------------ */
 [data-theme="dark"] {

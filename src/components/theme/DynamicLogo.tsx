@@ -19,7 +19,7 @@ export const DynamicLogo: React.FC = () => {
   }
 
   return (
-    <div className="hover:opacity-80 transition">
+    <div className="hover:opacity-80 transition select-none">
       <img src={logoSrc} alt="Logo" style={{ cursor: 'pointer',  }} onClick={handleLogoClick} />
     </div>
   )
