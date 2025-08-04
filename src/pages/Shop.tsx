@@ -1,8 +1,11 @@
-import React from 'react'
 
 const Shop = () => {
   return (
-    <div>Shop</div>
+    <div className="page-content-container">
+      <h1>
+        SHOP
+      </h1>
+    </div>
   )
 }
 

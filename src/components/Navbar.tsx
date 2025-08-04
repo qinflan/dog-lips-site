@@ -1,6 +1,17 @@
 import { useEffect, useState, useRef } from "react"
-import { motion, AnimatePresence, easeInOut, circIn, circOut, circInOut, backIn, backInOut, backOut, anticipate } from "motion/react"
+import { motion, 
+    AnimatePresence, 
+    easeInOut, 
+    circIn, 
+    circOut, 
+    circInOut, 
+    backIn, 
+    backInOut, 
+    backOut, 
+    anticipate 
+} from "motion/react"
 import "./Navbar.css"
+import { ToggleTheme } from '../components/theme/toggleTheme'
 import { IoClose } from "react-icons/io5";
 import { NavLink } from 'react-router'
 import { DynamicLogo } from './theme/DynamicLogo'
@@ -89,6 +100,9 @@ const Navbar = () => {
                 <NavLink className="nav-link" to="/contact">
                     <span>CONTACT</span>
                 </NavLink>
+                <div className="theme-slider-container">
+                <ToggleTheme/>
+                </div>
               </div>
 
             {/* Mobile Menu Button */}

@@ -1,5 +1,4 @@
 import './Home.css'
-import { ToggleTheme } from '../components/theme/toggleTheme'
 
 const Home = () => {
   return (
@@ -15,7 +14,6 @@ const Home = () => {
             loading="lazy">
           </iframe>
         </div>
-        <ToggleTheme />
       </div>
     </div>
   )

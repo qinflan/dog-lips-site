@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
-import { BsFillSunFill } from "react-icons/bs";
-import { WiMoonAltThirdQuarter } from "react-icons/wi";
+import { CgToggleSquareOff } from "react-icons/cg";
+import { CgToggleSquare } from "react-icons/cg";
+
 import { ThemeContext } from './ThemeContext';
 
 // define toggleTheme as functional component
@@ -16,7 +17,14 @@ export const ToggleTheme: React.FC = () => {
 
     return (
         <div className="toggle-container">
-            <WiMoonAltThirdQuarter  className="bg-[var(--page-foreground)] rounded-lg border border-widget-stroke text-[var(--icon)] cursor-pointer p-1.5 hover:opacity-70 transition" size={34} onClick={toggleTheme} />
+            { theme === 'dark' ? (
+                <CgToggleSquare className="rounded-lg text-[var(--icon)] cursor-pointer hover:opacity-70 transition" size={31} onClick={toggleTheme} />
+            ) : (
+                <CgToggleSquareOff className="rounded-lg text-[var(--icon)] cursor-pointer hover:opacity-70 transition" size={31} onClick={toggleTheme} />
+            )}
+    
+        
+              
         </div>
     )
 

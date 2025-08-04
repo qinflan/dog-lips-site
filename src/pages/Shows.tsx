@@ -1,8 +1,9 @@
-import React from 'react'
 
 const Shows = () => {
   return (
-    <div>Shows</div>
+    <div className="page-content-container">
+      <h1>SHOWS</h1>
+    </div>
   )
 }
 

@@ -1,18 +1,20 @@
 .form-section-container {
-    margin-top: 100px;
-    position: relative;
+    margin-top: 2rem;
+    max-width: 800px;
+    width: 100%;
     color: var(--primary-text);
     display: flex;
     flex-direction:column;
     align-items: center;
     justify-content: center;
-    gap:20px;
-    margin-bottom: 20vh;
+    gap:5vh;
 }
 
 .form-container {
     display: flex;
     position: relative;
+    width: 500px;
+    margin-bottom: 20px;
 }
 
 .input-fields-container {
@@ -21,27 +23,16 @@
     flex-direction:column;
     align-items: center;
     width: 100%; 
-    gap: 24px;
+    border: 3px solid var(--icon);
 }
 
 .input-field {
     width: 100%;
-    border:none;
-    color: var(--primary-text);
+    color: var(--accent-text);
     padding: 0.8rem;
-    font-size: 1.08rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    transition: border-color 0.3s ease;
-    outline: none;
-}
-
-.input-fields-container input{
-    border:none;
-    border-radius: 4px;
-    transition: border-color 0.3s ease;
-    outline: none;
+    font-size: 1.1rem;
+    border-bottom: 3px solid var(--icon);
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .input-field::placeholder {
@@ -49,25 +40,45 @@
 }
 
 textarea.input-field {
-    border-radius: 4px; 
-    padding: 0.8em;
     resize:none; 
     min-height: 150px;
-    margin-top: 20px;
 }
 
-.input-fields-container .brutal-button {
-    background-color: var(--page-foreground);
+.input-field:focus,
+.input-field:active {
+  outline: none;
+  box-shadow: none;
+}
+
+.email-submit-button {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--icon);
+    color: var(--page-background);
+    font-size: 1.3rem;
+    font-weight: 600;
+    font-family: "Eurostile", Arial, Helvetica, sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    cursor: pointer;
+    transition: 0.3s
+}
+
+.email-submit-button:hover {
+    opacity: 90%;
+    transition: 0.3s;
 }
 
 
-@media(max-width: 600px) {
+@media(max-width: 700px) {
     .input-fields-container {
-        width: 90%;
         background-color: unset;
-        border: unset;
         border-radius: 0;
         padding: unset;
-        gap: 24px;
+    }
+
+    .form-container {
+        width: 100%;
+        flex-direction: column;
     }
 }
