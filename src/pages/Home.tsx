@@ -1,12 +1,14 @@
 import './Home.css'
+import ReactPlayer from 'react-player'
 
 const Home = () => {
   return (
-      <div className="page-content-container">
+    <div className="page-content-container">
+      <div className="home-section-container">
         <h1>NEW MUSIC NOW</h1>
-        <div className="spotify-widget-container" style={{width: "100%", background: "var(--page-background)", overflow: "hidden", borderRadius: "15px"}}>
+        <div className="spotify-widget-container" style={{ width: "100%", background: "var(--page-background)", overflow: "hidden", borderRadius: "15px" }}>
           <iframe
-            style={{ border: 'none', overflow: 'hidden', width: '100%'}}
+            style={{ border: 'none', overflow: 'hidden', width: '100%' }}
             src="https://open.spotify.com/embed/artist/1L23rbDqrblJpid1WJkBVE?utm_source=generator&theme=0"
             width="100%"
             height="400"
@@ -14,8 +16,17 @@ const Home = () => {
             loading="lazy">
           </iframe>
         </div>
+        </div>
+        <div className="home-section-container">
         <h1>MUSIC VIDEO</h1>
+        <div className="youtube-video-container">
+          <ReactPlayer src='https://www.youtube.com/watch?v=Jv_28yMeXCQ&t=5s' controls light width="100%" height="100%" />
+        </div>
+        </div>
+      <div className="home-section-container">
         <h1>TOUR</h1>
+        <img src="/tour-example.jpg" alt="tour image" className="tour-image" />
+      </div>
       </div>
   )
 }
