@@ -26,9 +26,6 @@
 
   /* page */
   --page-background: #000000;
-  --page-foreground: #131313;
-  --foreground-hover:#2d2e30;
-  --page-divider: #383838;
   --icon: #ffffff;
 
   /* text */
@@ -42,9 +39,7 @@
 
 [data-theme="light"] {
   /* page */
-  --page-background: #f0eee7;
-  --foreground-hover:#2d2e30;
-  --page-divider: #686868;
+  --page-background: white;
   --icon: #0D0D0D;
   --input-field-focus: #000000;
 
@@ -54,4 +49,5 @@
   --secondary-text: #0D0D0D;
   --placeholder-text: #000000;
   --nav-text:  #0D0D0D;
+  --accent-text: #0004d4;
 }

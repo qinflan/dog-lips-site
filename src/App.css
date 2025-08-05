@@ -1,22 +1,19 @@
 #root {
   margin: 0 auto;
-  width: 100vw;
   height: 100vh;
 }
 
 .page-content-container {
   max-width: 1920px;
   width: 80%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   overflow: auto;
   align-items: center;
   justify-self: center;
   gap: 2rem;
-}
-
-.card {
-  padding: 2em;
+  margin-top: 120px;
 }
 
 h1 {
@@ -26,12 +23,3 @@ h1 {
   color: var(--primary-text);
   user-select: none;
 }
-
-/* h1 {
-  font-family: "Eurostile", Arial, Helvetica, sans-serif;
-  font-weight: 800;
-  font-size: 2.5em;
-  letter-spacing: -0.04em;
-  color: var(--primary-text);
-  text-transform: uppercase;
-} */

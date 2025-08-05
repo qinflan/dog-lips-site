@@ -2,8 +2,8 @@ import './Home.css'
 
 const Home = () => {
   return (
-    <div>
       <div className="page-content-container">
+        <h1>NEW MUSIC NOW</h1>
         <div className="spotify-widget-container" style={{width: "100%", background: "var(--page-background)", overflow: "hidden", borderRadius: "15px"}}>
           <iframe
             style={{ border: 'none', overflow: 'hidden', width: '100%'}}
@@ -14,8 +14,9 @@ const Home = () => {
             loading="lazy">
           </iframe>
         </div>
+        <h1>MUSIC VIDEO</h1>
+        <h1>TOUR</h1>
       </div>
-    </div>
   )
 }
 

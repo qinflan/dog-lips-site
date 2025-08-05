@@ -1,6 +1,5 @@
 .form-section-container {
     margin-top: 2rem;
-    max-width: 800px;
     width: 100%;
     color: var(--primary-text);
     display: flex;
@@ -13,7 +12,7 @@
 .form-container {
     display: flex;
     position: relative;
-    width: 500px;
+    width: 40vw;
     margin-bottom: 20px;
 }
 
@@ -32,7 +31,9 @@
     padding: 0.8rem;
     font-size: 1.1rem;
     border-bottom: 3px solid var(--icon);
-    font-family: 'Times New Roman', Times, serif;
+    font-family: "Consolas", Times, serif;
+    letter-spacing: -0.05em;
+    font-weight: 500;
 }
 
 .input-field::placeholder {
@@ -52,10 +53,10 @@ textarea.input-field {
 
 .email-submit-button {
     width: 100%;
-    padding: 10px;
+    padding: 20px;
     background-color: var(--icon);
     color: var(--page-background);
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     font-weight: 600;
     font-family: "Eurostile", Arial, Helvetica, sans-serif;
     font-weight: 800;

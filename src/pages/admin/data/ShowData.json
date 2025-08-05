@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "Dog Lips Live at The Roxy",
+    "date": "2025-09-12",
+    "venue": "The Roxy Theatre",
+    "city": "Los Angeles",
+    "state": "CA",
+    "time": "8:00 PM",
+    "ticketsUrl": "https://tickets.example.com/roxy"
+  },
+  {
+    "id": 2,
+    "title": "Dog Lips at CBGB Revival Night",
+    "date": "2025-10-03",
+    "venue": "CBGB",
+    "city": "New York",
+    "state": "NY",
+    "time": "9:30 PM",
+    "ticketsUrl": "https://tickets.example.com/cbgb"
+  },
+  {
+    "id": 3,
+    "title": "Dog Lips Halloween Bash",
+    "date": "2025-10-31",
+    "venue": "The Viper Room",
+    "city": "West Hollywood",
+    "state": "CA",
+    "time": "10:00 PM",
+    "ticketsUrl": "https://tickets.example.com/viper"
+  }
+]

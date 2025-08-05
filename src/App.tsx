@@ -6,6 +6,7 @@ import Contact from './pages/Contact'
 import Shop from './pages/Shop'
 import Shows from './pages/Shows'
 import Admin from './pages/admin/Admin'
+import Footer from './components/Footer'
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="shop" element={<Shop/>}/>
         <Route path="admin" element={<Admin/>}/>
       </Routes>
+      <Footer/>
     </>
   )
 }

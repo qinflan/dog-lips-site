@@ -1,0 +1,15 @@
+.shows-table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 3px solid var(--icon);
+    color: var(--primary-text);
+    font-family: "Consolas", Times, sans-serif;
+    font-weight: 500;
+}
+
+.shows-table th,
+.shows-table td {
+  border: 2px solid var(--icon);
+  padding: 1rem;
+  text-align: center;
+}
