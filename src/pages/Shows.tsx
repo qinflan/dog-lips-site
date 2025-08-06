@@ -8,37 +8,28 @@ const Shows = () => {
 
       <table className="shows-table">
         <thead>
-          <th>City</th>
-          <th>Date</th>
-          <th>Venue</th>
-          <th>Time</th>
-          <th>Bands</th>
-          <th>Price</th>
+          <th>UPCOMING</th>
+            <th/>
+            <th/>
         </thead>
         <tbody>
           <tr>
-            <td>Boston, MA</td>
             <td>11/05/2002</td>
             <td>Paradise Rock Club</td>
-            <td>7pm</td>
-            <td>Big Stink, Tony From Bowling, Plant Fight</td>
-            <td>$20</td>
+            <td>Boston, MA</td>
+          </tr>
+            <th>PAST</th>
+            <th/>
+            <th/>
+          <tr>
+            <td>11/05/2002</td>
+            <td>Paradise Rock Club</td>
+            <td>Boston, MA</td>
           </tr>
           <tr>
-            <td>Boston, MA</td>
             <td>11/05/2002</td>
             <td>Paradise Rock Club</td>
-            <td>7pm</td>
-            <td>Big Stink, Tony From Bowling, Plant Fight</td>
-            <td>$20</td>
-          </tr>
-          <tr>
             <td>Boston, MA</td>
-            <td>11/05/2002</td>
-            <td>Paradise Rock Club</td>
-            <td>7pm</td>
-            <td>Big Stink, Tony From Bowling, Plant Fight</td>
-            <td>$20</td>
           </tr>
         </tbody>
       </table>

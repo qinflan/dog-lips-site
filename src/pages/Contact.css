@@ -50,7 +50,7 @@ textarea.input-field {
   box-shadow: none;
 }
 
-.email-submit-button {
+.form-submit-btn {
     width: 100%;
     padding: 20px;
     background-color: var(--icon);
@@ -64,7 +64,7 @@ textarea.input-field {
     transition: 0.3s
 }
 
-.email-submit-button:hover {
+.form-submit-btn:hover {
     opacity: 90%;
     transition: 0.3s;
 }

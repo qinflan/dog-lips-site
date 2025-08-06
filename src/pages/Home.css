@@ -32,4 +32,9 @@
     .spotify-widget-container {
         width: 100%;
     }
+
+    .tour-image {
+    max-width: 100%;
+}
+
 }
