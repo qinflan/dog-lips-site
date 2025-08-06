@@ -16,18 +16,28 @@ const Home = () => {
             loading="lazy">
           </iframe>
         </div>
-        </div>
-        <div className="home-section-container">
+      </div>
+      <div className="home-section-container">
         <h1>MUSIC VIDEO</h1>
         <div className="youtube-video-container">
           <ReactPlayer src='https://www.youtube.com/watch?v=Jv_28yMeXCQ&t=5s' controls light width="100%" height="100%" />
         </div>
-        </div>
+      </div>
       <div className="home-section-container">
         <h1>TOUR</h1>
         <img src="/tour-example.jpg" alt="tour image" className="tour-image" />
       </div>
+      <div className="visit-counter">
+        <a href="https://www.hitwebcounter.com" target="_blank" rel="noopener noreferrer">
+          <img
+            src="https://hitwebcounter.com/counter/counter.php?page=21328088&style=0011&nbdigits=5&type=page&initCount=0"
+            title="Counter Widget"
+            alt="Visit counter for websites"
+            style={{ border: 0 }}
+          />
+        </a>
       </div>
+    </div>
   )
 }
 

@@ -82,7 +82,7 @@ const Contact = () => {
 
           </div>
 
-          <ToastContainer position="bottom-right" />
+          <ToastContainer toastStyle={{ fontFamily: '"Consolas", monospace, Times, sans-serif' }} position="bottom-right" />
         </form>
       </div>
     </div>

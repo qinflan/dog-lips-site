@@ -35,6 +35,11 @@
   --placeholder-text: #66ff3f;
   --nav-text:  #ffffff;
   --accent-text: #66ff3f;
+
+  --toast-shadow: #0000000c;
+  --toast-success: #7CE25D;
+  --toast-error: #ff0000;
+  --toast-close-icon: #000000;
 }
 
 [data-theme="light"] {
@@ -50,4 +55,54 @@
   --placeholder-text: #000000;
   --nav-text:  #0D0D0D;
   --accent-text: #0004d4;
+
+  --toast-shadow: #0000000c;
+  --toast-success: #7CE25D;
+  --toast-error: #00d9ff;
+  --toast-close-icon: #000000;
+
+}
+
+
+/* Toast Containers */
+.Toastify__toast {
+  border-radius: 0 !important; 
+  border: 2px solid var(--icon) !important; 
+  background-color: var(--page-background) !important; 
+  color: var(--primary-text) !important; 
+}
+
+.Toastify__toast-icon {
+  display: none !important;
+}
+
+.Toastify__close-button {
+  color: var(--icon) !important;
+}
+
+.Toastify__close-button:hover,
+.Toastify__close-button:focus {
+  color: var(--icon) !important;
+  opacity: 90%;
+}
+
+.Toastify__progress-bar {
+  border-radius: 0 !important;
+}
+
+.Toastify__toast-body {
+  font-family: "Consolas", monospace, Times, sans-serif;
+  color: var(--primary-text);
+}
+
+.Toastify__close-button {
+  color: var(--icon) !important;
+}
+
+.Toastify__progress-bar--success {
+  background-color: var(--toast-success) !important;
+}
+
+.Toastify__progress-bar--error {
+  background-color: var(--toast-error) !important; 
 }

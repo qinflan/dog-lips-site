@@ -1,6 +1,6 @@
 import './Admin.css'
 import { useState } from 'react'
-import { useAuth } from '../../auth/Authcontext.tsx'
+import { useAuth } from '../../auth/AuthContext.tsx'
 
 const Admin = () => {
   const auth = useAuth();

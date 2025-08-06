@@ -2,7 +2,9 @@ import "./AddMerch.css"
 
 const AddShow = () => {
   return (
-    <div>AddShow</div>
+    <div className="page-content-container">
+        <h1>ADD SHOW</h1>
+    </div>
   )
 }
 

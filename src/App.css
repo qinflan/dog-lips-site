@@ -15,6 +15,7 @@
   gap: 8rem;
   margin-top: 200px;
   margin-bottom: 200px;
+  position: relative;
 }
 
 h1 {
