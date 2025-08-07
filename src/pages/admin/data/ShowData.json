@@ -5,8 +5,10 @@
     "venue": "Paradise Rock Club",
     "city": "Boston",
     "state": "MA",
-    "time": "8:00 PM",
-    "ticketsUrl": "https://tickets.example.com/roxy",
+    "address": "967 Commonwealth Ave",
+    "time": "8pm Doors",
+    "price": "$15",
+    "ticketsUrl": "",
     "flyerUrl": "/IMG_4545.jpeg"
   },
   {
@@ -15,7 +17,9 @@
     "venue": "The Atomic Ranch",
     "city": "Newmarket",
     "state": "NH",
-    "time": "9:30 PM",
+    "address": "967 Commonwealth Ave",
+    "time": "9pm Doors",
+    "price": "$15",
     "ticketsUrl": "https://tickets.example.com/cbgb",
     "flyerUrl": "/IMG_4546.jpeg"
   },
@@ -25,7 +29,9 @@
     "venue": "3S Artspace",
     "city": "Portsmouth",
     "state": "NH",
+    "address": "967 Commonwealth Ave",
     "time": "9:30 PM",
+    "price": "$15",
     "ticketsUrl": "https://tickets.example.com/cbgb",
     "flyerUrl": "/IMG_4546.jpeg"
   }

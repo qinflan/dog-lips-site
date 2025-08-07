@@ -21,7 +21,7 @@
     flex-direction:column;
     align-items: center;
     width: 100%; 
-    border: 3px solid var(--icon);
+    border: 2px solid var(--icon);
 }
 
 .input-field {
@@ -29,7 +29,7 @@
     color: var(--accent-text);
     padding: 0.8rem;
     font-size: 1.1rem;
-    border-bottom: 3px solid var(--icon);
+    border-bottom: 2px solid var(--icon);
     font-family: "Consolas", Times, serif;
     letter-spacing: -0.08em;
     font-weight: 500;
