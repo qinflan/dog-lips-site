@@ -28,6 +28,7 @@
     font-weight: 500;
     color: var(--primary-text);
     text-decoration:underline;
+    letter-spacing: -0.05rem;
 }
 
 .footer-link:hover {

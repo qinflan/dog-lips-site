@@ -5,6 +5,7 @@
     position: fixed;
     display: flex;
     align-items: center;
+    text-align: center;
     padding: 0 4rem;
     justify-content: space-between;
     z-index: 1000;

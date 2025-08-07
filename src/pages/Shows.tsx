@@ -1,38 +1,22 @@
+import { Link } from "react-router";
 import "./Shows.css"
-
+import shows from './admin/data/ShowData.json';
 
 const Shows = () => {
   return (
     <div className="page-content-container">
+      <div className="shows-section-container">
       <h1>SHOWS</h1>
-
-      <table className="shows-table">
-        <thead>
-          <th>UPCOMING</th>
-            <th/>
-            <th/>
-        </thead>
-        <tbody>
-          <tr>
-            <td>11/05/2002</td>
-            <td>Paradise Rock Club</td>
-            <td>Boston, MA</td>
-          </tr>
-            <th>PAST</th>
-            <th/>
-            <th/>
-          <tr>
-            <td>11/05/2002</td>
-            <td>Paradise Rock Club</td>
-            <td>Boston, MA</td>
-          </tr>
-          <tr>
-            <td>11/05/2002</td>
-            <td>Paradise Rock Club</td>
-            <td>Boston, MA</td>
-          </tr>
-        </tbody>
-      </table>
+      <div className="shows-table">
+        {shows.map((show) => (
+          <Link to={`/shows/${show.id}`} className="show-row-link">
+            <div className="show-date-cell">{show.date}</div>
+            <div className="show-venue-cell">{show.venue}</div>
+            <div className="show-location-cell">{show.city}, {show.state}</div>
+          </Link>
+        ))}
+      </div>
+    </div>
     </div>
   )
 }
