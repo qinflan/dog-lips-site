@@ -10,7 +10,7 @@
     justify-content: space-between;
     z-index: 1000;
     background-color: var(--page-background);
-    border-bottom: 2px solid var(--icon);
+    /* border-bottom: 2px solid var(--icon); */
 }
 
 .logo-container {

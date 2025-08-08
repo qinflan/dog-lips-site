@@ -18,9 +18,11 @@ export const ToggleTheme: React.FC = () => {
     return (
         <div className="toggle-container">
             { theme === 'dark' ? (
-                <CgToggleSquare className="rounded-lg text-[var(--icon)] cursor-pointer hover:opacity-70 transition" size={31} onClick={toggleTheme} />
+                // <CgToggleSquare className="rounded-lg text-[var(--icon)] cursor-pointer hover:opacity-70 transition" size={31} onClick={toggleTheme} />
+                <img src="/snog-dark.svg" className="w-10 cursor-pointer"onClick={toggleTheme}></img>
             ) : (
-                <CgToggleSquareOff className="rounded-lg text-[var(--icon)] cursor-pointer hover:opacity-70 transition" size={31} onClick={toggleTheme} />
+                <img src="/snog.svg" className="w-10 cursor-pointer "onClick={toggleTheme}></img>
+                // <CgToggleSquareOff className="rounded-lg text-[var(--icon)] cursor-pointer hover:opacity-70 transition" size={31} onClick={toggleTheme} />
             )}
     
         

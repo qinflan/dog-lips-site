@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "imageUrl": "/dummyshirt.png",
+        "bandcampURL": "https://bandcamp.com/doglips",
+        "name": "laundry tee",
+        "price": 25.00,
+        "description": "A comfortable tee for everyday wear."
+    },
+    {
+        "id": 1,
+        "imageUrl": "/dummyshirt2.webp",
+        "bandcampURL": "https://bandcamp.com/doglips",
+        "name": "thin lizzy",
+        "price": 25.00,
+        "description": "A comfortable tee for everyday wear."
+    },
+    {
+        "id": 2,
+        "imageUrl": "/dummyshirt3.webp",
+        "bandcampURL": "https://bandcamp.com/doglips",
+        "name": "ec melodi",
+        "price": 25.00,
+        "description": "A comfortable tee for everyday wear."
+    }
+]
