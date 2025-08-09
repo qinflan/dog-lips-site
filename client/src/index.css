@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: var(--page-background);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--primary-text);
+  color: var(--page-background);
+}
+
+/* Global CSS Colors by Theme*/
+/* ------------------------------------------------------------ */
+[data-theme="dark"] {
+
+  /* page */
+  --page-background: #000000;
+  --icon: #ffffff;
+
+  /* text */
+  --header-text: #ffffff;
+  --primary-text: #ffffff;
+  --secondary-text: #ffffff;
+  --placeholder-text: #66ff3f;
+  --nav-text:  #ffffff;
+  --accent-text: #66ff3f;
+
+  --toast-success: #66ff3f;
+  --toast-error: #ff8aec;
+  --toast-close-icon: #000000;
+}
+
+[data-theme="light"] {
+  /* page */
+  --page-background: white;
+  --icon: #0D0D0D;
+  --input-field-focus: #000000;
+
+  /* text */
+  --header-text: #0D0D0D;
+  --primary-text: #0D0D0D;
+  --secondary-text: #0D0D0D;
+  --placeholder-text: #000000;
+  --nav-text:  #0D0D0D;
+  --accent-text: #0004d4;
+
+  --toast-success: #66ff3f;
+  --toast-error: #ff8aec;
+  --toast-close-icon: #000000;
+
+}
+
+
+/* Toast Containers */
+.Toastify__toast {
+  border-radius: 0 !important; 
+  border: 2px solid var(--icon) !important; 
+  background-color: var(--page-background) !important; 
+  color: var(--primary-text) !important; 
+  box-shadow: none !important;
+}
+
+.Toastify__toast-icon {
+  display: none !important;
+}
+
+.Toastify__close-button {
+  color: var(--icon) !important;
+}
+
+.Toastify__progress-bar {
+  border-radius: 0 !important;
+}
+
+.Toastify__toast-body {
+  font-family: "Consolas", monospace, Times, sans-serif;
+  color: var(--primary-text);
+}
+
+.Toastify__close-button {
+  color: var(--icon) !important;
+}
+
+.Toastify__progress-bar--success {
+  background-color: var(--toast-success) !important;
+}
+
+.Toastify__progress-bar--error {
+  background-color: var(--toast-error) !important; 
+}

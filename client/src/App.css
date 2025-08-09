@@ -1,0 +1,27 @@
+#root {
+  margin: 0 auto;
+  height: 100vh;
+}
+
+.page-content-container {
+  max-width: 1920px;
+  width: 80%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  align-items: center;
+  justify-self: center;
+  gap: 8rem;
+  margin-top: 200px;
+  margin-bottom: 200px;
+  position: relative;
+}
+
+h1 {
+  font-family: "neue-haas-grotesk-display", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 2.5em;
+  color: var(--primary-text);
+  user-select: none;
+}
