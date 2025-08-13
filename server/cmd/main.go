@@ -3,11 +3,12 @@ package main
 import (
 	"context"
 	"log"
-	"os"
 	"net/http"
-	"github.com/jackc/pgx/v5"
+	"os"
+
+	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/joho/godotenv"
-	"github.com/qinflan/dog-lips-site/server/cmd/api"
+	"github.com/qinflan/dog-lips-site/server/api"
 )
 
 func main() {
@@ -15,19 +16,23 @@ func main() {
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}
-	
+
 	connStr := os.Getenv("DATABASE_URL")
-	conn, err := pgx.Connect(context.Background(), connStr)
+
+	dbPool, err := pgxpool.New(context.Background(), connStr)
 	if err != nil {
 		log.Fatalf("Unable to connect to database: %v\n", err)
 	}
-	defer conn.Close(context.Background())
+	defer dbPool.Close()
 
-	if conn.Ping(context.Background()) == nil {
-		log.Println("Connected to the database successfully!")
+	err = dbPool.Ping(context.Background())
+	if err != nil {
+		log.Fatalf("Unable to ping database: %v\n", err)
 	}
 
-	router := api.NewRouter(conn)
+	log.Println("Connected to database successfully!")
+
+	router := api.NewRouter(dbPool)
 
 	log.Println("Starting server on :9090")
 	if err := http.ListenAndServe(":9090", router); err != nil {
