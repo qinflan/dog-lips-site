@@ -5,22 +5,14 @@ import (
 	"net/http"
 
 	"github.com/jackc/pgx/v5/pgxpool"
+	"github.com/qinflan/dog-lips-site/server/middleware"
 	"github.com/qinflan/dog-lips-site/server/service"
+	dto "github.com/qinflan/dog-lips-site/server/types"
 )
-
-type RegisterRequest struct {
-	Username string `json:"username"`
-	Password string `json:"password"`
-}
-
-type LoginRequest struct {
-	Username string `json:"username"`
-	Password string `json:"password"`
-}
 
 func RegisterHandler(db *pgxpool.Pool) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		var req RegisterRequest
+		var req dto.RegisterRequest
 
 		if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
 			http.Error(w, "Invalid request payload.", http.StatusBadRequest)
@@ -33,29 +25,58 @@ func RegisterHandler(db *pgxpool.Pool) http.HandlerFunc {
 			return
 		}
 
-		user.Password = ""
+		token, err := middleware.GenerateJWT(user.ID)
+		if err != nil {
+			http.Error(w, "Could not generate token", http.StatusInternalServerError)
+			return
+		}
+
+		res := dto.UserResponse{
+			Token: token,
+			User: dto.UserOutput{
+				ID:       user.ID,
+				Username: user.Username,
+				Created:  user.CreatedAt,
+			},
+		}
+
+		// return token to client
 		w.Header().Set("Content-Type", "application/json")
-		json.NewEncoder(w).Encode(user)
+		json.NewEncoder(w).Encode(res)
 	}
 }
 
 func LoginHandler(db *pgxpool.Pool) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		var req LoginRequest
+		var req dto.LoginRequest
 		if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
 			http.Error(w, "Invalid request payload.", http.StatusBadRequest)
 			return
 		}
 
-		// change to use username instead
 		user, err := service.AuthenticateUser(r.Context(), db, req.Username, req.Password)
 		if err != nil {
-			http.Error(w, "Could not create user.", http.StatusUnauthorized)
+			http.Error(w, "Could not authenticate user.", http.StatusUnauthorized)
 			return
 		}
 
-		user.Password = ""
+		token, err := middleware.GenerateJWT(user.ID)
+		if err != nil {
+			http.Error(w, "Could not generate token", http.StatusInternalServerError)
+			return
+		}
+
+		res := dto.UserResponse{
+			Token: token,
+			User: dto.UserOutput{
+				ID:       user.ID,
+				Username: user.Username,
+				Created:  user.CreatedAt,
+			},
+		}
+
+		// return token to client
 		w.Header().Set("Content-Type", "application/json")
-		json.NewEncoder(w).Encode(user)
+		json.NewEncoder(w).Encode(res)
 	}
 }

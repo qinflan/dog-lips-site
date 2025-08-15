@@ -28,8 +28,8 @@ func CreateUser(ctx context.Context, db *pgxpool.Pool, username, password string
 
 func GetUserByUsername(ctx context.Context, db *pgxpool.Pool, username string) (*models.User, error) {
 	var user models.User
-	err := db.QueryRow(ctx, "SELECT id, password FROM users WHERE username=$1", username).
-		Scan(&user.ID, &user.Password)
+	err := db.QueryRow(ctx, "SELECT id, username, password, created_at FROM users WHERE username=$1", username).
+		Scan(&user.ID, &user.Username, &user.Password, &user.CreatedAt)
 	if err != nil {
 		return nil, err
 	}
