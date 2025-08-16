@@ -5,6 +5,7 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/jackc/pgx/v5/pgxpool"
+	"github.com/qinflan/dog-lips-site/server/middleware"
 )
 
 func NewRouter(db *pgxpool.Pool) *mux.Router {
@@ -15,8 +16,13 @@ func NewRouter(db *pgxpool.Pool) *mux.Router {
 	}).Methods("GET")
 
 	// auth routes
-	r.HandleFunc("/auth/register", RegisterHandler(db)).Methods("POST")
-	r.HandleFunc("/auth/login", LoginHandler(db)).Methods("POST")
+	r.Handle("/auth/register", RegisterHandler(db)).Methods("POST")
+	r.Handle("/auth/login", LoginHandler(db)).Methods("POST")
+	r.Handle("/auth/me", middleware.RequireAuth(UserHandler(db))).Methods("POST")
+
+	// show routes
+
+	// merch routes
 
 	return r
 }
