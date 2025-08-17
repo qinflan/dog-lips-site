@@ -8,7 +8,7 @@ import (
 	"github.com/qinflan/dog-lips-site/server/middleware"
 )
 
-func NewRouter(db *pgxpool.Pool) *mux.Router {
+func NewRouter(db *pgxpool.Pool, s3Client *middleware.S3Client) *mux.Router {
 	r := mux.NewRouter()
 	r.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
@@ -16,11 +16,12 @@ func NewRouter(db *pgxpool.Pool) *mux.Router {
 	}).Methods("GET")
 
 	// auth routes
-	r.Handle("/auth/register", RegisterHandler(db)).Methods("POST")
-	r.Handle("/auth/login", LoginHandler(db)).Methods("POST")
-	r.Handle("/auth/me", middleware.RequireAuth(UserHandler(db))).Methods("POST")
+	r.HandleFunc("/auth/register", RegisterHandler(db)).Methods("POST")
+	r.HandleFunc("/auth/login", LoginHandler(db)).Methods("POST")
+	r.HandleFunc("/auth/me", middleware.RequireAuth(UserHandler(db))).Methods("POST")
 
 	// show routes
+	r.HandleFunc("/shows/presign", PresignHandler(s3Client)).Methods("POST")
 
 	// merch routes
 
