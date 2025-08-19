@@ -1,29 +1,31 @@
 package api
 
 import (
-	"net/http"
-
 	"github.com/gorilla/mux"
 	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/qinflan/dog-lips-site/server/middleware"
+	"github.com/qinflan/dog-lips-site/server/service"
 )
 
-func NewRouter(db *pgxpool.Pool, s3Client *middleware.S3Client) *mux.Router {
+type App struct {
+	DB            *pgxpool.Pool
+	S3Client      *service.S3Client
+	SpotifyClient *service.SpotifyClient
+}
+
+func NewRouter(app *App) *mux.Router {
 	r := mux.NewRouter()
-	r.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
-		w.WriteHeader(http.StatusOK)
-		w.Write([]byte("OK"))
-	}).Methods("GET")
 
 	// auth routes
-	r.HandleFunc("/auth/register", RegisterHandler(db)).Methods("POST")
-	r.HandleFunc("/auth/login", LoginHandler(db)).Methods("POST")
-	r.HandleFunc("/auth/me", middleware.RequireAuth(UserHandler(db))).Methods("POST")
+	r.HandleFunc("/auth/register", RegisterHandler(app.DB)).Methods("POST")
+	r.HandleFunc("/auth/login", LoginHandler(app.DB)).Methods("POST")
+	r.HandleFunc("/auth/me", middleware.RequireAuth(UserHandler(app.DB))).Methods("POST")
 
 	// show routes
-	r.HandleFunc("/shows/presign", PresignHandler(s3Client)).Methods("POST")
+	r.HandleFunc("/shows/presign", PresignHandler(app.S3Client)).Methods("POST")
 
-	// merch routes
+	// music routes
+	r.HandleFunc("/music/recent", MostRecentReleaseHandler(app.SpotifyClient)).Methods("GET")
 
 	return r
 }

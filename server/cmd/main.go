@@ -9,7 +9,7 @@ import (
 	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/joho/godotenv"
 	"github.com/qinflan/dog-lips-site/server/api"
-	"github.com/qinflan/dog-lips-site/server/middleware"
+	"github.com/qinflan/dog-lips-site/server/service"
 )
 
 func main() {
@@ -33,11 +33,20 @@ func main() {
 
 	log.Println("Connected to database successfully!")
 
-	s3Client, err := middleware.NewS3Client()
+	s3Client, err := service.NewS3Client()
 	if err != nil {
 		log.Fatalf("failed to create S3 client: %v", err)
 	}
-	router := api.NewRouter(dbPool, s3Client)
+
+	spotifyClient := service.NewSpotifyClient()
+
+	app := &api.App{
+		DB:            dbPool,
+		S3Client:      s3Client,
+		SpotifyClient: spotifyClient,
+	}
+
+	router := api.NewRouter(app)
 
 	log.Println("Starting server on :9090")
 	if err := http.ListenAndServe(":9090", router); err != nil {
