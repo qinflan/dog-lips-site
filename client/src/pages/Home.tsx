@@ -1,21 +1,68 @@
 import './Home.css'
+import { useState, useEffect } from 'react'
 import ReactPlayer from 'react-player'
+import {
+  getMostRecentAppleRelease,
+  getMostRecentSpotifyRelease,
+} from '../api/music'
+import type { MostRecentSpotifyRelease, MostRecentAppleRelease } from '../api/music'
+import { FaSpotify, FaApple } from "react-icons/fa";
+
+
 
 const Home = () => {
+
+  const [spotifyRelease, setSpotifyRelease] = useState<MostRecentSpotifyRelease | null>(null)
+  const [appleRelease, setAppleRelease] = useState<MostRecentAppleRelease | null>(null)
+
+  useEffect(() => {
+    const fetchReleases = async () => {
+      try {
+        const spotify = await getMostRecentSpotifyRelease()
+        const apple = await getMostRecentAppleRelease()
+
+        setSpotifyRelease(spotify)
+        setAppleRelease(apple)
+      } catch (err) {
+        console.error("Error fetching music releases: ", err)
+      }
+    }
+
+    fetchReleases()
+  }, [])
+
+
+
   return (
     <div className="page-content-container">
       <div className="home-section-container">
         <h1>NEW MUSIC NOW</h1>
-        <div className="spotify-widget-container" style={{ width: "100%", background: "var(--page-background)", overflow: "hidden", borderRadius: "15px" }}>
-          <iframe
-            style={{ border: 'none', overflow: 'hidden', width: '100%' }}
-            src="https://open.spotify.com/embed/artist/1L23rbDqrblJpid1WJkBVE?utm_source=generator&theme=0"
-            width="100%"
-            height="400"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy">
-          </iframe>
-        </div>
+
+        {spotifyRelease && (
+          <div className="music-card-container">
+            <img className="music-card-img" src={spotifyRelease.images[1]?.url || spotifyRelease.images[0]?.url} alt={spotifyRelease.name} />
+
+            <div className="music-card-text">
+              <h1 className="music-card-name" style={{ margin: 0, fontWeight: "bold" }}>{spotifyRelease.name}</h1>
+              <p className="music-card-date" style={{ margin: 0 }}>{new Date(spotifyRelease.releaseDate).toLocaleDateString()}</p>
+
+              <div className="recent-release-links">
+                
+              <a className="music-card-icon" href={spotifyRelease.url} target="_blank" rel="noopener noreferrer">
+                <FaSpotify size={25} /> spotify
+              </a>
+
+              {appleRelease && (
+                <>
+                  <a className="music-card-icon" href={appleRelease.url} target="_blank" rel="noopener noreferrer">
+                    <FaApple size={25} /> apple music
+                  </a>
+                </>
+              )}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
       <div className="home-section-container">
         <h1>MUSIC VIDEO</h1>

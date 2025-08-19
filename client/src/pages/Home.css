@@ -3,14 +3,59 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.4rem;
+    gap: 3rem;
     width: 100%;
 }
 
-.spotify-widget-container {
+.music-card-container {
+    display: flex;
+    border: 2px solid var(--icon);
     max-width: 1000px;
     width: 100%;
     user-select: none;
+    align-items: center;
+}
+
+.music-card-img {
+    padding: 30px;
+}
+
+.music-card-container h1 {
+    font-size: 3em;
+}
+
+.music-card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.music-card-date {
+    color: var(--primary-text);
+    font-family: "Consolas", Times, sans-serif;
+    font-weight: 500;
+    letter-spacing: -0.05rem;
+    font-size: 1.1rem;
+}
+
+.recent-release-links {
+    display: flex;
+    gap: 25px;
+}
+
+.music-card-icon {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family:  "Consolas", Times, serif;
+    font-weight: 500;
+    color: var(--primary-text);
+    text-decoration:underline;
+    letter-spacing: -0.05rem;
+}
+
+.music-card-icon:hover {
+    color: var(--accent-text)
 }
 
 .youtube-video-container {
@@ -40,7 +85,7 @@
 }
 
 @media (max-width: 768px) {
-    .spotify-widget-container {
+    .music-card-container {
         width: 100%;
     }
 

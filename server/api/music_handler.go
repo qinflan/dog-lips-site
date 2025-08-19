@@ -12,7 +12,7 @@ var artistID = "1L23rbDqrblJpid1WJkBVE"
 func MostRecentReleaseHandler(spotifyClient *service.SpotifyClient) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 
-		release, tracks, err := service.GetMostRecentRelease(artistID, spotifyClient)
+		release, err := service.GetMostRecentRelease(artistID, spotifyClient)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
@@ -20,10 +20,8 @@ func MostRecentReleaseHandler(spotifyClient *service.SpotifyClient) http.Handler
 
 		resp := struct {
 			Release service.SpotifyRelease `json:"release"`
-			Tracks  []service.SpotifyTrack `json:"tracks"`
 		}{
 			Release: release,
-			Tracks:  tracks,
 		}
 
 		w.Header().Set("Content-Type", "application/json")

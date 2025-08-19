@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/gorilla/handlers"
 	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/joho/godotenv"
 	"github.com/qinflan/dog-lips-site/server/api"
@@ -48,8 +49,14 @@ func main() {
 
 	router := api.NewRouter(app)
 
+	corsRouter := handlers.CORS(
+		handlers.AllowedOrigins([]string{os.Getenv("ALLOWED_ORIGIN_DEV")}), // change to prod for deploy
+		handlers.AllowedMethods([]string{"GET", "POST", "OPTIONS"}),
+		handlers.AllowedHeaders([]string{"Content-Type", "Authorization"}),
+	)(router)
+
 	log.Println("Starting server on :9090")
-	if err := http.ListenAndServe(":9090", router); err != nil {
+	if err := http.ListenAndServe(":9090", corsRouter); err != nil {
 		log.Fatalf("Failed to start server: %v\n", err)
 	}
 }
