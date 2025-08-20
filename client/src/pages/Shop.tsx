@@ -6,6 +6,9 @@ const Shop = () => {
   return (
     <div className="page-content-container">
       <div className="shop-section-container">
+      <div className="marquee">
+        <span>☠️ UNDER CONSTRUCTION 🕷️ WE ARE CURRENTLY ROCKING 🩸 MERCH WILL BE UPLOADED TO SHOP AFTER TOUR ☮️</span>
+      </div>
       <h1>
         SHOP
       </h1>
