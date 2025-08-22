@@ -166,6 +166,7 @@
     .release-info {
         margin-right: 0;
         text-align: center;
+        font-size: smaller;
     }
 
     .recent-release-links {
