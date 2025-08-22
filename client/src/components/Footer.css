@@ -23,11 +23,12 @@
 .footer-links {
     display: flex;
     gap: 15px;
-    font-family:  "Consolas", Times, serif;
-    font-weight: 500;
+    font-family: "degular-mono", Times, serif;
+    font-weight: 400;
     color: var(--primary-text);
     text-decoration:underline;
     letter-spacing: -0.05rem;
+    font-size: medium;
 }
 
 .footer-link:hover {

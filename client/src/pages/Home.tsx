@@ -46,7 +46,7 @@ const Home = () => {
               <p className="music-card-date">{new Date(spotifyRelease.releaseDate).toLocaleDateString()}</p>
               <h1 className="music-card-name">{spotifyRelease.name}</h1>
               <p className="release-info">
-                Proceeds Benefit{" "}
+                All proceeds from our tapes go straight to{" "}
                 <Link 
                   target="_blank"
                   rel="noopener noreferrer"
@@ -55,7 +55,7 @@ const Home = () => {
                 >
                   The New Hampshire Bail Fund
                 </Link> 
-                {" "}which provides bail for people being held in jails across New Hampshire, with a focus on the Valley Street Jail in Manchester, NH.
+                {" "}helping free people unjustly locked up in ICE detention centers in Dover, NH and Plymouth, MA.
               </p>
               <div className="recent-release-links">
               <a className="music-card-icon" href="https://strangemono.bandcamp.com/album/danger-forward" target="_blank" rel="noopener noreferrer">

@@ -33,7 +33,8 @@
 }
 
 .merch-details {
-    font-family: "Consolas", Times, serif;
+    font-family: "degular-mono", Times, serif;
+    font-weight: 400;
     text-align: center;
     color: var(--primary-text);
     border: 2px solid var(--icon);
@@ -50,7 +51,8 @@
     border:2px solid var(--icon);
     width: 100%;
     max-width: 1000px;
-    font-family: "Consolas", Times, serif;
+    font-family: "degular-mono", Times, serif;
+    font-weight: 400;
     overflow: hidden;
     white-space: nowrap;
     color: var(--accent-text);

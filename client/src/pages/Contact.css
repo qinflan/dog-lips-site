@@ -30,9 +30,9 @@
     padding: 0.8rem;
     font-size: 1.1rem;
     border-bottom: 2px solid var(--icon);
-    font-family: "Consolas", Times, serif;
+    font-family: "deguar-mono", Times, serif;
     letter-spacing: -0.08em;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .input-field::placeholder {
