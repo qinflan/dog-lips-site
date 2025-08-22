@@ -40,8 +40,8 @@
 
 .release-info {
     color: var(--primary-text);
-    font-family: Times, sans-serif;
-    font-weight: 500;
+    font-family: "degular-mono", Times, sans-serif;
+    font-weight: 400;
     letter-spacing: -0.03rem;
     font-size: 1.1rem;
     margin-right: 30px;
@@ -65,7 +65,7 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    font-family:  "degular-mono", Times, serif;
+    font-family: "degular-mono", Times, serif;
     font-weight: 400;
     color: var(--primary-text);
     text-decoration:underline;
@@ -87,10 +87,10 @@
     display: flex;
     width: 80%;
     color: var(--primary-text);
-    font-family: Times, sans-serif;
-    font-weight: 500;
+    font-family: "degular-mono", Times, sans-serif;
+    font-weight: 300;
     letter-spacing: -0.03rem;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 
 .youtube-video-container {
