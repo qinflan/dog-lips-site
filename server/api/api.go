@@ -1,6 +1,8 @@
 package api
 
 import (
+	"net/http"
+
 	"github.com/gorilla/mux"
 	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/qinflan/dog-lips-site/server/middleware"
@@ -15,6 +17,11 @@ type App struct {
 
 func NewRouter(app *App) *mux.Router {
 	r := mux.NewRouter()
+
+	r.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+		w.Write([]byte(`{"status":"ok"}`))
+	})
 
 	// auth routes
 	r.HandleFunc("/auth/register", RegisterHandler(app.DB)).Methods("POST")
