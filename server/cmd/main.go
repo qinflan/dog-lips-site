@@ -14,30 +14,7 @@ import (
 )
 
 func main() {
-
 	_ = godotenv.Load()
-
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "9090"
-	}
-
-	app := &api.App{}
-	router := api.NewRouter(app)
-
-	corsRouter := handlers.CORS(
-		handlers.AllowedOrigins([]string{os.Getenv("ALLOWED_ORIGIN_PROD")}),
-		handlers.AllowedMethods([]string{"GET", "POST", "OPTIONS"}),
-		handlers.AllowedHeaders([]string{"Content-Type", "Authorization"}),
-	)(router)
-
-	go func() {
-		log.Println("Starting server on :" + port)
-		if err := http.ListenAndServe("0.0.0.0:"+port, corsRouter); err != nil {
-			log.Fatalf("Failed to start server: %v\n", err)
-		}
-	}()
-
 	connStr := os.Getenv("DATABASE_URL")
 
 	dbPool, err := pgxpool.New(context.Background(), connStr)
@@ -60,9 +37,27 @@ func main() {
 
 	spotifyClient := service.NewSpotifyClient()
 
-	app.DB = dbPool
-	app.S3Client = s3Client
-	app.SpotifyClient = spotifyClient
+	app := &api.App{
+		DB:            dbPool,
+		S3Client:      s3Client,
+		SpotifyClient: spotifyClient,
+	}
 
-	select {}
+	router := api.NewRouter(app)
+
+	corsRouter := handlers.CORS(
+		handlers.AllowedOrigins([]string{os.Getenv("ALLOWED_ORIGIN_PROD")}),
+		handlers.AllowedMethods([]string{"GET", "POST", "OPTIONS"}),
+		handlers.AllowedHeaders([]string{"Content-Type", "Authorization"}),
+	)(router)
+
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "9090"
+	}
+
+	log.Println("Starting server on :" + port)
+	if err := http.ListenAndServe(":"+port, corsRouter); err != nil {
+		log.Fatalf("Failed to start server: %v\n", err)
+	}
 }
