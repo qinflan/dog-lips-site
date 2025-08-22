@@ -5,6 +5,7 @@
 
 .page-content-container {
   max-width: 1920px;
+  width: 90%;
   min-height: calc(100vh - 100px);
   display: flex;
   flex-direction: column;
@@ -34,5 +35,10 @@ h1 {
 @media (max-width: 768px) {
   h1 {
     font-size: xx-large
+  }
+
+  .page-content-container {
+    width: 80%;
+    align-items: center;
   }
 }
