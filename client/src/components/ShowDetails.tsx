@@ -1,9 +1,8 @@
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router";
-import axios from "axios";
 import "./ShowDetails.css";
-import shows from '../pages/admin/data/ShowData.json'; // Local fallback data
+import shows from '../pages/admin/data/ShowData.json'; // local fallback data
 
 
 interface Show {
@@ -14,8 +13,8 @@ interface Show {
   city: string;
   state: string;
   address: string;
-  ticketsUrl: string;
-  flyerUrl: string;
+  ticketsUrl?: string;
+  flyerUrl?: string;
 }
 
 const ShowDetails = () => {
@@ -33,7 +32,7 @@ const ShowDetails = () => {
 
       try {
         // Simulate fetch from future API
-        const response = await axios.get<Show>(`/api/shows/${id}`);
+        // const response = await axios.get<Show>(`/api/shows/${id}`);
         // Uncomment below when API is ready
         // setShow(response.data);
 

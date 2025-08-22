@@ -1,13 +1,7 @@
 import { useEffect, useState, useRef } from "react"
 import { motion, 
     AnimatePresence, 
-    easeInOut, 
-    circIn, 
     circOut, 
-    circInOut, 
-    backIn, 
-    backInOut, 
-    backOut, 
     anticipate 
 } from "motion/react"
 import "./Navbar.css"

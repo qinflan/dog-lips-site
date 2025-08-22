@@ -1,6 +1,4 @@
 import React, { useContext } from 'react'
-import { CgToggleSquareOff } from "react-icons/cg";
-import { CgToggleSquare } from "react-icons/cg";
 
 import { ThemeContext } from './ThemeContext';
 
