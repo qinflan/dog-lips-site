@@ -14,10 +14,7 @@ import (
 )
 
 func main() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
+	_ = godotenv.Load()
 
 	connStr := os.Getenv("DATABASE_URL")
 
@@ -50,13 +47,18 @@ func main() {
 	router := api.NewRouter(app)
 
 	corsRouter := handlers.CORS(
-		handlers.AllowedOrigins([]string{os.Getenv("ALLOWED_ORIGIN_DEV")}), // change to prod for deploy
+		handlers.AllowedOrigins([]string{os.Getenv("ALLOWED_ORIGIN_PROD")}),
 		handlers.AllowedMethods([]string{"GET", "POST", "OPTIONS"}),
 		handlers.AllowedHeaders([]string{"Content-Type", "Authorization"}),
 	)(router)
 
-	log.Println("Starting server on :9090")
-	if err := http.ListenAndServe(":9090", corsRouter); err != nil {
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "9090"
+	}
+
+	log.Println("Starting server on :" + port)
+	if err := http.ListenAndServe(":"+port, corsRouter); err != nil {
 		log.Fatalf("Failed to start server: %v\n", err)
 	}
 }
