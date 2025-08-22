@@ -58,7 +58,7 @@ func main() {
 	}
 
 	log.Println("Starting server on :" + port)
-	if err := http.ListenAndServe(":"+port, corsRouter); err != nil {
+	if err := http.ListenAndServe("0.0.0.0:"+port, corsRouter); err != nil {
 		log.Fatalf("Failed to start server: %v\n", err)
 	}
 }
