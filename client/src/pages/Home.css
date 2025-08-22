@@ -32,8 +32,8 @@
 
 .music-card-date {
     color: var(--primary-text);
-    font-family: "Consolas", Times, sans-serif;
-    font-weight: 500;
+    font-family: "degular-mono", Times, sans-serif;
+    font-weight: 400;
     letter-spacing: -0.05rem;
     font-size: 1.1rem;
 }
