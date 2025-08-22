@@ -6,9 +6,8 @@ import "./Contact.css";
 
 const Contact = () => {
 
-  // declare state for email contents to be validated in backend
-  const [Name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [author, setAuthor] = useState('');
+  const [senderEmail, setSenderEmail] = useState('');
   const [subject, setSubject] = useState('');
   const [body, setBody] = useState('');
 
@@ -16,24 +15,24 @@ const Contact = () => {
     e.preventDefault();
 
     try {
-      const formResponse = await axios.post("https://example-api.com/send-email",  // setup backend first
+      const formResponse = await axios.post("http://localhost:9090/contact/request", 
         {
-          Name,
-          email,
+          author,
+          senderEmail,
           subject,
           body
         });
 
       if (formResponse.status == 200) {
-        toast.success("Thank you for contacting me!")
-        setEmail('');
+        toast.success("message sent!")
+        setSenderEmail('');
         setSubject('');
         setBody('');
-        setName('');
+        setAuthor('');
       }
     } catch (error) {
       console.error("Error sending email: ", error)
-      toast.error("Message failed to send")
+      toast.error("message failed to send")
     }
 
   }
@@ -48,16 +47,16 @@ const Contact = () => {
               type="text"
               className="input-field"
               placeholder="name"
-              value={Name}
-              onChange={(e) => setName(e.target.value)}
+              value={author}
+              onChange={(e) => setAuthor(e.target.value)}
               required />
 
             <input
               type="text"
               className="input-field"
               placeholder="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={senderEmail}
+              onChange={(e) => setSenderEmail(e.target.value)}
               required />
 
             <input

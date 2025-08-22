@@ -27,5 +27,8 @@ func NewRouter(app *App) *mux.Router {
 	// music routes
 	r.HandleFunc("/music/recent", MostRecentReleaseHandler(app.SpotifyClient)).Methods("GET")
 
+	// contact route
+	r.HandleFunc("/contact/request", ContactHandler).Methods("POST")
+
 	return r
 }

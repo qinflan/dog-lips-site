@@ -18,6 +18,7 @@
   letter-spacing: -0.08rem;
   gap: 10px;
   font-size: large;
+  text-decoration: underline;
 }
 
 .show-row-link {
