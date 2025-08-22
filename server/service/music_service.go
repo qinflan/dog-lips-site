@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 )
 
@@ -31,13 +32,17 @@ func GetMostRecentRelease(artistID string, client *SpotifyClient) (SpotifyReleas
 	req, _ := http.NewRequestWithContext(context.Background(), "GET", url, nil)
 	req.Header.Set("Authorization", "Bearer "+token)
 
+	log.Println("Making Spotify API request to:", url)
+
 	resp, err := http.DefaultClient.Do(req)
 	if err != nil {
+		log.Println("Spotify API request failed:", err)
 		return SpotifyRelease{}, err
 	}
 	defer resp.Body.Close()
 
 	if resp.StatusCode != http.StatusOK {
+		log.Println("Spotify API returned non-200:", resp.Status)
 		return SpotifyRelease{}, fmt.Errorf("spotify API failed: %s", resp.Status)
 	}
 
@@ -52,6 +57,8 @@ func GetMostRecentRelease(artistID string, client *SpotifyClient) (SpotifyReleas
 	}
 
 	release := result.Items[0]
+
+	log.Println("Spotify API call succeeded")
 
 	return release, nil
 }
