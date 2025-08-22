@@ -1,26 +1,20 @@
 [
     {
         "id": 1,
-        "imageUrl": "/dummyshirt.png",
-        "bandcampURL": "https://bandcamp.com/doglips",
-        "name": "laundry tee",
-        "price": 25.00,
-        "description": "A comfortable tee for everyday wear."
+        "imageUrl": "/molag-bal.webp",
+        "name": "mace of molag bal",
+        "price": 195.00
     },
     {
         "id": 1,
-        "imageUrl": "/dummyshirt2.webp",
-        "bandcampURL": "https://bandcamp.com/doglips",
-        "name": "thin lizzy",
-        "price": 25.00,
-        "description": "A comfortable tee for everyday wear."
+        "imageUrl": "/wuuthrad.webp",
+        "name": "axe of wuuthrad",
+        "price": 95.00
     },
     {
         "id": 2,
-        "imageUrl": "/dummyshirt3.webp",
-        "bandcampURL": "https://bandcamp.com/doglips",
-        "name": "ec melodi",
-        "price": 25.00,
-        "description": "A comfortable tee for everyday wear."
+        "imageUrl": "/volundrung.webp",
+        "name": "volundrung",
+        "price": 135.00
     }
 ]

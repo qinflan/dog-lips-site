@@ -6,22 +6,34 @@
 .page-content-container {
   max-width: 1920px;
   width: 80%;
-  min-height: 100vh;
+  min-height: calc(100vh - 100px);
   display: flex;
   flex-direction: column;
   overflow: auto;
   align-items: center;
   justify-self: center;
   gap: 8rem;
-  margin-top: 200px;
-  margin-bottom: 200px;
+  margin-top: 150px;
+  margin-bottom: 100px;
   position: relative;
 }
 
 h1 {
   font-family: "neue-haas-grotesk-display", Arial, Helvetica, sans-serif;
   font-weight: 700;
-  font-size: 2.5em;
+  font-size: 3em;
   color: var(--primary-text);
   user-select: none;
+}
+
+@media (max-width: 980px) {
+  h1 {
+    line-height: normal;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: xx-large
+  }
 }

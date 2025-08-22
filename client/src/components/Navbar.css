@@ -75,7 +75,7 @@
     color: var(--icon);
     cursor: pointer;
     padding: 0.3rem;
-    border-radius: 0.05rem;
+    border-radius: 0.1rem;
     transition: 0.3s;
 }
 

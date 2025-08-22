@@ -1,99 +1,69 @@
 [
   {
     "id": 1,
-    "date": "2025-09-12",
-    "venue": "Paradise Rock Club",
-    "city": "Boston",
-    "state": "MA",
-    "address": "967 Commonwealth Ave",
+    "date": "2025-08-23",
+    "venue": "3S Artspace",
+    "city": "Portsmouth",
+    "state": "NH",
+    "address": "319 Vaughan St",
     "time": "8pm Doors",
-    "price": "$15",
-    "ticketsUrl": "",
-    "flyerUrl": "/IMG_4545.jpeg"
+    "ticketsUrl": "https://www.eventbrite.com/e/dog-lips-w-gymshorts-and-bowling-shoes-tickets-1389668869999",
+    "flyerUrl": "/3s.jpeg"
   },
+
   {
     "id": 2,
-    "date": "2025-10-03",
-    "venue": "The Atomic Ranch",
-    "city": "Newmarket",
-    "state": "NH",
-    "address": "967 Commonwealth Ave",
-    "time": "9pm Doors",
-    "price": "$15",
-    "ticketsUrl": "https://tickets.example.com/cbgb",
-    "flyerUrl": "/IMG_4546.jpeg"
+    "date": "2025-08-26",
+    "venue": "The Bundy Museum",
+    "city": "Binghamton",
+    "state": "NY",
+    "address": "133 Main St.",
+    "time": "8pm Doors",
+    "flyerUrl": "/bundy_museum.jpeg"
   },
-    {
-    "id": 2,
-    "date": "2025-10-03",
-    "venue": "3S Artspace",
-    "city": "Portsmouth",
-    "state": "NH",
-    "address": "967 Commonwealth Ave",
-    "time": "9:30 PM",
-    "price": "$15",
-    "ticketsUrl": "https://tickets.example.com/cbgb",
-    "flyerUrl": "/IMG_4546.jpeg"
+
+  {
+    "id": 3,
+    "date": "2025-08-27",
+    "venue": "Camp Cataract",
+    "city": "Niagara Falls",
+    "state": "Ontario",
+    "address": "4317 Queen St.",
+    "time": "8pm Doors",
+    "flyerUrl": "/cataract.jpeg"
   },
-      {
-    "id": 2,
-    "date": "2025-10-03",
-    "venue": "3S Artspace",
-    "city": "Portsmouth",
-    "state": "NH",
-    "address": "967 Commonwealth Ave",
-    "time": "9:30 PM",
-    "price": "$15",
-    "ticketsUrl": "https://tickets.example.com/cbgb",
-    "flyerUrl": "/IMG_4546.jpeg"
+  
+  {
+    "id": 4,
+    "date": "2025-08-28",
+    "venue": "The Richmond Tavern",
+    "city": "London",
+    "state": "Ontario",
+    "address": "370 Richmond St.",
+    "time": "8pm Doors",
+    "flyerUrl": "/richmond_tavern.jpeg"
   },
-      {
-    "id": 2,
-    "date": "2025-10-03",
-    "venue": "3S Artspace",
-    "city": "Portsmouth",
-    "state": "NH",
-    "address": "967 Commonwealth Ave",
-    "time": "9:30 PM",
-    "price": "$15",
-    "ticketsUrl": "https://tickets.example.com/cbgb",
-    "flyerUrl": "/IMG_4546.jpeg"
+
+  {
+    "id": 5,
+    "date": "2025-08-29",
+    "venue": "Oddfellows",
+    "city": "Cincinnati",
+    "state": "OH",
+    "address": "2014 Elm St.",
+    "time": "8pm Doors",
+    "flyerUrl": ""
   },
-      {
-    "id": 2,
-    "date": "2025-10-03",
-    "venue": "3S Artspace",
-    "city": "Portsmouth",
-    "state": "NH",
-    "address": "967 Commonwealth Ave",
-    "time": "9:30 PM",
-    "price": "$15",
-    "ticketsUrl": "https://tickets.example.com/cbgb",
-    "flyerUrl": "/IMG_4546.jpeg"
-  },
-      {
-    "id": 2,
-    "date": "2025-10-03",
-    "venue": "3S Artspace",
-    "city": "Portsmouth",
-    "state": "NH",
-    "address": "967 Commonwealth Ave",
-    "time": "9:30 PM",
-    "price": "$15",
-    "ticketsUrl": "https://tickets.example.com/cbgb",
-    "flyerUrl": "/IMG_4546.jpeg"
-  },
-      {
-    "id": 2,
-    "date": "2025-10-03",
-    "venue": "3S Artspace",
-    "city": "Portsmouth",
-    "state": "NH",
-    "address": "967 Commonwealth Ave",
-    "time": "9:30 PM",
-    "price": "$15",
-    "ticketsUrl": "https://tickets.example.com/cbgb",
-    "flyerUrl": "/IMG_4546.jpeg"
+
+  {
+    "id": 6,
+    "date": "2025-08-30",
+    "venue": "123 Pleasant St.",
+    "city": "Morgantown",
+    "state": "WV",
+    "address": "123 Pleasant St.",
+    "time": "8pm Doors",
+    "flyerUrl": ""
   }
   
 ]

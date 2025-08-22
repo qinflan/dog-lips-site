@@ -1,5 +1,6 @@
 import './App.css'
 import { Route, Routes } from 'react-router'
+import ScrollToTop from './components/ScrollToTop'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Contact from './pages/Contact'
@@ -18,6 +19,7 @@ function App() {
   return (
     <>
     <Navbar/>
+    <ScrollToTop/>
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="contact" element={<Contact/>}/>
@@ -26,9 +28,9 @@ function App() {
         <Route path="shop" element={<Shop/>}/>
         <Route path="admin" element={<Admin/>}/>
         <Route path="admin/add-show" element={
-          // <RequireAuth>
-            <AddShow />
-          // {/* </RequireAuth> */}
+        <RequireAuth>
+          <AddShow />
+        </RequireAuth>
         }/>
         <Route path="admin/add-merch" element={
           <RequireAuth>

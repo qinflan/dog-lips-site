@@ -12,6 +12,10 @@ import (
 	"github.com/golang-jwt/jwt/v5"
 )
 
+type contextKey string
+
+const claimsKey = contextKey("claims")
+
 func GenerateJWT(userID int64) (string, error) {
 	jwtKey := os.Getenv("JWT_SECRET")
 	if jwtKey == "" {
@@ -49,7 +53,7 @@ func ValidateJWT(tokenString string) (*jwt.Token, error) {
 	return token, nil
 }
 
-func RequireAuth(next http.Handler) http.Handler {
+func RequireAuth(next http.Handler) http.HandlerFunc {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		authHeader := r.Header.Get("Authorization")
 		if authHeader == "" {
@@ -79,7 +83,7 @@ func RequireAuth(next http.Handler) http.Handler {
 		}
 
 		// Store claims in context
-		ctx := context.WithValue(r.Context(), "claims", claims)
+		ctx := context.WithValue(r.Context(), claimsKey, claims)
 		next.ServeHTTP(w, r.WithContext(ctx))
 	})
 }

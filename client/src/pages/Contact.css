@@ -70,15 +70,20 @@ textarea.input-field {
 }
 
 
-@media(max-width: 700px) {
-    .input-fields-container {
-        background-color: unset;
-        border-radius: 0;
-        padding: unset;
-    }
+@media(max-width: 768px) {
 
     .form-container {
         width: 100%;
         flex-direction: column;
     }
+
+    .input-field {
+        font-size: medium;
+    }
+
+    .form-submit-btn {
+        font-size: large;
+    }
+
+
 }
