@@ -62,10 +62,16 @@ const ShowDetails = () => {
     <div className="page-content-container">
       <div className="show-details-page-container">
 
-        <img
-          src={show.flyerUrl}
-          className="flyer-container"
-        />
+        {show.flyerUrl ? (
+          <img
+            src={show.flyerUrl}
+            className="flyer-container"
+          />
+        ) : (
+          <>
+          </>
+        )}
+
         <div className="show-text-details-container">
           <p><strong>Date:</strong> {show.date}</p>
           <p><strong>Time:</strong> {show.time}</p>
@@ -78,7 +84,7 @@ const ShowDetails = () => {
           }
         </div>
       </div>
-      <p className ="go-back-link" onClick={() => navigate(-1)}>← Back to Shows</p>
+      <p className="go-back-link" onClick={() => navigate(-1)}>← Back to Shows</p>
     </div>
   );
 };

@@ -59,15 +59,15 @@ const Home = () => {
               </p>
               <div className="recent-release-links">
               <a className="music-card-icon" href="https://strangemono.bandcamp.com/album/danger-forward" target="_blank" rel="noopener noreferrer">
-                <FaBandcamp size={20}/> buy on candcamp
+                <FaBandcamp size={20}/> Buy on Bandcamp
               </a>
               <a className="music-card-icon" href={spotifyRelease.url} target="_blank" rel="noopener noreferrer">
-                <FaSpotify size={20} /> spotify
+                <FaSpotify size={20} /> Spotify
               </a>
               {appleRelease && (
                 <>
                   <a className="music-card-icon" href={appleRelease.url} target="_blank" rel="noopener noreferrer">
-                    <FaApple size={20} /> apple music
+                    <FaApple size={20} /> Apple Music
                   </a>
                 </>
               )}
@@ -93,14 +93,14 @@ const Home = () => {
       </div>
       </div>
       <div className="home-section-container">
-        <h1>VOICEMAIL BOMBTHREAT</h1>
+        <h1>TOUR DATES</h1>
+        <img src="/danger_forward_tour.jpeg" alt="tour image" className="tour-image" />
+      </div>
+      <div className="home-section-container">
+        <h1>LIVE AT THE NEWS</h1>
         <div className="youtube-video-container">
           <ReactPlayer src='https://www.youtube.com/watch?v=Jv_28yMeXCQ&t=5s' controls light width="100%" height="100%" />
         </div>
-      </div>
-      <div className="home-section-container">
-        <h1>TOUR DATES</h1>
-        <img src="/danger_forward_tour.jpeg" alt="tour image" className="tour-image" />
       </div>
       <div className="visit-counter">
         <a href="https://www.hitwebcounter.com" target="_blank" rel="noopener noreferrer">

@@ -17,6 +17,7 @@
   font-weight: 500;
   letter-spacing: -0.08rem;
   gap: 10px;
+  font-size: large;
 }
 
 .show-row-link {
@@ -25,15 +26,17 @@
   width: 100%;
   gap: 15px;
   justify-content: center;
+
 }
 
 .show-row-link:hover {
   color: var(--accent-text);
-  text-decoration: underline;
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 768px) {
+
   .shows-table {
-    width: 90%;
+    font-size: smaller;
   }
+  
 }
