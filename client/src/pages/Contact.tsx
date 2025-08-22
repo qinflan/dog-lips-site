@@ -15,7 +15,7 @@ const Contact = () => {
     e.preventDefault();
 
     try {
-      const formResponse = await axios.post("http://localhost:9090/contact/request", 
+      const formResponse = await axios.post("https://dog-lips-site-production.up.railway.app/contact/request", 
         {
           author,
           senderEmail,

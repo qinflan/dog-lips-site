@@ -61,7 +61,7 @@ export const getMostRecentAppleRelease = async (): Promise<MostRecentAppleReleas
 
 export const getMostRecentSpotifyRelease = async (): Promise<MostRecentSpotifyRelease | null> => {
     try {
-        const url = "http://localhost:9090/music/recent";
+        const url = "https://dog-lips-site-production.up.railway.app/music/recent";
         const response = await axios.get<{release: any}>(url);
         const release = response.data.release;
 
