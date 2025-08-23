@@ -22,14 +22,13 @@ func ContactHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	smtpReq := &service.SMTPRequest{
+	smtpReq := &service.SendEmailRequest{
 		Author:      req.Author,
 		SenderEmail: req.SenderEmail,
 		Subject:     req.Subject,
 		Body:        req.Body,
 	}
 
-	// Send the email
 	if err := service.SendEmail(smtpReq); err != nil {
 		http.Error(w, "Failed to send email: "+err.Error(), http.StatusInternalServerError)
 		return

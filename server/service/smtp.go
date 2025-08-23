@@ -2,45 +2,40 @@ package service
 
 import (
 	"fmt"
-	"net/smtp"
 	"os"
+
+	"github.com/resend/resend-go/v2"
 )
 
-type SMTPConfig struct {
-	Host     string
-	Port     string
-	Username string
-	Password string
-	From     string
-	To       string
-}
-
-type SMTPRequest struct {
+type SendEmailRequest struct {
 	Author      string
 	SenderEmail string
 	Subject     string
 	Body        string
 }
 
-func SendEmail(smtpRequest *SMTPRequest) error {
+func SendEmail(smtpRequest *SendEmailRequest) error {
 
-	smtpConfig := SMTPConfig{
-		Host:     "smtp.gmail.com",
-		Port:     "587",
-		Username: "dog.lips.automatron@gmail.com",
-		Password: os.Getenv("GMAIL_APP_PASSWORD"),
-		From:     "dog.lips.automatron@gmail.com",
-		To:       "ihatedoglips@gmail.com",
+	apiKey := os.Getenv("RESEND_API_KEY")
+	client := resend.NewClient(apiKey)
+
+	params := &resend.SendEmailRequest{
+		From:    "DOG LIPS AUTOMATRON <no-reply@doglips.net>",
+		To:      []string{"ihatedoglips@gmail.com"},
+		Subject: smtpRequest.Subject,
+		Html: fmt.Sprintf(`
+			<h2>DOGLIPS.NET CONTACT FORM REQUEST</h2>
+			<p><b>From:</b> %s &lt;%s&gt;</p>
+			<p><b>Message:</b></p>
+			<p>%s</p>
+		`, smtpRequest.Author, smtpRequest.SenderEmail, smtpRequest.Body),
 	}
 
-	auth := smtp.PlainAuth("", smtpConfig.Username, smtpConfig.Password, smtpConfig.Host)
+	_, err := client.Emails.Send(params)
+	if err != nil {
+		return fmt.Errorf("failed to send email: %w", err)
+	}
 
-	message := "From: " + smtpConfig.From + "\r\n" +
-		"To: " + smtpConfig.To + "\r\n" +
-		"Subject: " + smtpRequest.Subject + "\r\n" +
-		"MIME-version: 1.0;\r\nContent-Type: text/plain; charset=\"UTF-8\";\r\n\r\n" +
-		fmt.Sprintf("DOGLIPS.NET CONTACT FORM REQUEST \n\nFrom: %s <%s>\n\n%s", smtpRequest.Author, smtpRequest.SenderEmail, smtpRequest.Body)
+	return nil
 
-	address := fmt.Sprintf("%s:%s", smtpConfig.Host, smtpConfig.Port)
-	return smtp.SendMail(address, auth, smtpConfig.From, []string{smtpConfig.To}, []byte(message))
 }
