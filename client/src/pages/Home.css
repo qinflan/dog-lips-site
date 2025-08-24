@@ -7,6 +7,10 @@
     width: 100%;
 }
 
+.home-section-container h1 {
+    text-align: center;
+}
+
 .music-card-container {
     display: flex;
     border: 2px solid var(--icon);

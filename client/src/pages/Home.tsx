@@ -97,9 +97,9 @@ const Home = () => {
         <img src="/danger_forward_tour.jpeg" alt="tour image" className="tour-image" />
       </div>
       <div className="home-section-container">
-        <h1>LIVE AT THE NEWS</h1>
+        <h1>VOICEMAIL BOMB THREAT</h1>
         <div className="youtube-video-container">
-          <ReactPlayer src='https://www.youtube.com/watch?v=Jv_28yMeXCQ&t=5s' controls light width="100%" height="100%" />
+          <ReactPlayer src='https://www.youtube.com/watch?v=BZRTEi5O2ck' controls width="100%" height="100%" />
         </div>
       </div>
       <div className="visit-counter">
