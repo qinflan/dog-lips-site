@@ -26,6 +26,7 @@
 
 .music-card-name {
     font-size: 3em;
+    text-align: unset;
 }
 
 .music-card-text {
@@ -151,6 +152,10 @@
 @media (max-width: 768px) {
     .music-card-text {
         align-items: center;
+    }
+
+    .music-card-name {
+        text-align: center;
     }
     .music-card-container {
         width: 100%;
