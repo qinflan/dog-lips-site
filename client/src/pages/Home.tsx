@@ -80,7 +80,8 @@ const Home = () => {
         <div className="bio-preview-container">
         <p className="artist-bio">
           Hailing from Portsmouth, New Hampshire, Dog Lips deliver a raw and relentless blend of punk, hard rock, and new wave on their sophomore album, Danger Forward. These nine tracks tear through themes of warped Americana, B-movie delirium, and the absurdity of modern life, punctuated by the unrelenting drums, confrontational vocals, and sleazy riffage. It’s an album that refuses to sit still. Dog Lips are brash, unapologetic, and wired for maximum impact.
-        </p>
+        <br/> - Strange Mono</p>
+
         <iframe 
           data-testid="embed-iframe" 
           style={{"borderRadius": "15px"}}
