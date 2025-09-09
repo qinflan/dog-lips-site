@@ -7,9 +7,9 @@
     width: 100%;
 }
 
-.home-section-container h1 {
+/* .home-section-container h1 {
     text-align: center;
-}
+} */
 
 .music-card-container {
     display: flex;
@@ -17,7 +17,6 @@
     max-width: 1000px;
     width: 100%;
     user-select: none;
-    align-items: center;
 }
 
 .music-card-img {
@@ -157,6 +156,7 @@
     .music-card-name {
         text-align: center;
     }
+
     .music-card-container {
         width: 100%;
         flex-direction: column;
