@@ -47,6 +47,7 @@ func main() {
 
 	corsRouter := handlers.CORS(
 		handlers.AllowedOrigins([]string{os.Getenv("ALLOWED_ORIGIN_PROD")}),
+		handlers.AllowedOrigins([]string{os.Getenv("ALLOWED_ORIGIN_LOCAL")}),
 		handlers.AllowedMethods([]string{"GET", "POST", "OPTIONS"}),
 		handlers.AllowedHeaders([]string{"Content-Type", "Authorization"}),
 	)(router)
