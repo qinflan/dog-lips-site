@@ -1,4 +1,4 @@
-import "./AddMerch.css"
+import "./ManageMerch.css"
 
 const AddMerch = () => {
   return (

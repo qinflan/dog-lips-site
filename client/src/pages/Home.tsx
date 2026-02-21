@@ -76,6 +76,14 @@ const Home = () => {
           </div>
         )}
       </div>
+
+      <div className="home-section-container">
+        <h1>PUB STARS</h1>
+        <div className="youtube-video-container">
+          <ReactPlayer src='https://www.youtube.com/watch?v=zQxISuwLaO4' controls width="100%" height="100%" />
+        </div>
+      </div>
+
       <div className="home-section-container">
         <div className="bio-preview-container">
         <p className="artist-bio">
@@ -93,10 +101,10 @@ const Home = () => {
         </iframe>
       </div>
       </div>
-      <div className="home-section-container">
+      {/* <div className="home-section-container">
         <h1>TOUR DATES</h1>
         <img src="/danger_forward_tour.jpeg" alt="tour image" className="tour-image" />
-      </div>
+      </div> */}
       <div className="home-section-container">
         <h1>VOICEMAIL BOMB THREAT</h1>
         <div className="youtube-video-container">

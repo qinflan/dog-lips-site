@@ -11,8 +11,8 @@ import Admin from './pages/admin/Admin'
 import Footer from './components/Footer'
 
 import RequireAuth from './auth/RequireAuth'
-import AddShow from './pages/admin/AddShow'
-import AddMerch from './pages/admin/AddMerch'
+import ManageShows from './pages/admin/ManageShows'
+import ManageMerch from './pages/admin/ManageMerch'
 
 function App() {
 
@@ -29,12 +29,12 @@ function App() {
         <Route path="admin" element={<Admin/>}/>
         <Route path="admin/add-show" element={
         <RequireAuth>
-          <AddShow />
+          <ManageShows />
         </RequireAuth>
         }/>
         <Route path="admin/add-merch" element={
           <RequireAuth>
-            <AddMerch />
+            <ManageMerch />
           </RequireAuth>
         }/>
       </Routes>

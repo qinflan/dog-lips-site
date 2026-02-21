@@ -6,10 +6,10 @@ const Admin = () => {
   const auth = useAuth();
   if (!auth) {
     // Optionally render an error or fallback UI
-    return <div>Auth context not found.</div>;
+    return <div>User not authenticated</div>;
   }
-const { isLoggedIn, login, logout } = auth
-const [form, setForm] = useState({ username: '', password: '' })
+  const { isLoggedIn, login, logout } = auth
+  const [form, setForm] = useState({ username: '', password: '' })
 
 if (!isLoggedIn) {
     return (

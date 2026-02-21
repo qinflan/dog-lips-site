@@ -80,19 +80,19 @@ const Navbar = () => {
             </div>
               <div className="nav-menu-container">
                 <NavLink className="nav-link" to="/">
-                    <span>HOME</span>
+                  HOME
                 </NavLink>
 
                 <NavLink className="nav-link" to="/shows">
-                    <span>SHOWS</span>
+                  SHOWS
                 </NavLink>
 
                 <NavLink className="nav-link" to="/shop">
-                    <span>SHOP</span>
+                  SHOP
                 </NavLink>
 
                 <NavLink className="nav-link" to="/contact">
-                    <span>CONTACT</span>
+                  CONTACT
                 </NavLink>
                 <div className="theme-slider-container">
                 <ToggleTheme/>

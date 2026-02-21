@@ -24,6 +24,9 @@
 /* ------------------------------------------------------------ */
 [data-theme="dark"] {
 
+  --background: #000000;
+  --foreground: #ffffff;
+
   /* page */
   --page-background: #000000;
   --icon: #ffffff;
@@ -42,6 +45,9 @@
 }
 
 [data-theme="light"] {
+
+  --background: #ffffff;
+  --foreground: #000000;
   /* page */
   --page-background: white;
   --icon: #0D0D0D;
