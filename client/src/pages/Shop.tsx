@@ -7,7 +7,7 @@ const Shop = () => {
     <div className="page-content-container">
       <div className="shop-section-container">
       {/* <div className="marquee">
-        <span>☠️ UNDER CONSTRUCTION 🕷️ WE ARE CURRENTLY ROCKING 🩸 MERCH WILL BE UPLOADED TO SHOP AFTER TOUR ☮️</span>
+        <span>🕷️ WE ARE CURRENTLY ROCKING 🩸 MERCH WILL BE UPLOADED TO SHOP AFTER TOUR ☮️</span>
       </div> */}
       <h1>
         SHOP
@@ -18,7 +18,7 @@ const Shop = () => {
             <a href={item.url} target="_blank" rel="noreferrer">
             <img src={item.imageUrl} alt={item.name} className="merch-image" />
             <div className="merch-details">
-              <h2 className="merch-name">{item.name}</h2>
+              <h3>{item.name}</h3>
               <p className="merch-price">${item.price}</p>
             </div>
             </a>

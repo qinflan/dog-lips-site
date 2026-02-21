@@ -8,23 +8,26 @@ import {
 } from '../api/music'
 import type { MostRecentSpotifyRelease, MostRecentAppleRelease } from '../api/music'
 import { FaSpotify, FaApple } from "react-icons/fa";
+import SnogSpinner from '../components/SnogSpinner'
 
 
 const Home = () => {
-
   const [spotifyRelease, setSpotifyRelease] = useState<MostRecentSpotifyRelease | null>(null)
   const [appleRelease, setAppleRelease] = useState<MostRecentAppleRelease | null>(null)
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     const fetchReleases = async () => {
+      setLoading(true)
       try {
         const spotify = await getMostRecentSpotifyRelease()
         const apple = await getMostRecentAppleRelease()
-
         setSpotifyRelease(spotify)
         setAppleRelease(apple)
       } catch (err) {
         console.error("Error fetching music releases: ", err)
+      } finally {
+        setLoading(false)
       }
     }
 
@@ -37,11 +40,10 @@ const Home = () => {
     <div className="page-content-container">
       <div className="home-section-container">
         <h1>NEW MUSIC NOW</h1>
-
-        {spotifyRelease && (
+        {loading && <SnogSpinner />}
+        {spotifyRelease && appleRelease && !loading && (
           <div className="music-card-container">
             <img className="music-card-img" src={spotifyRelease.images[1]?.url || spotifyRelease.images[0]?.url} alt={spotifyRelease.name} />
-
             <div className="music-card-text">
               <p className="music-card-date">{new Date(spotifyRelease.releaseDate).toLocaleDateString()}</p>
               <h1 className="music-card-name">{spotifyRelease.name}</h1>
