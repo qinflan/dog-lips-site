@@ -6,7 +6,12 @@
   align-items: center;
   justify-content: center;
   gap:5vh; 
-  align-items: center;
+}
+
+.shows-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .shows-table {
@@ -26,7 +31,6 @@
   position: relative;
   width: 100%;
   gap: 15px;
-  justify-content: center;
 
 }
 

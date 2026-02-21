@@ -26,6 +26,14 @@ h1 {
   user-select: none;
 }
 
+h2 {
+  font-family: "neue-haas-grotesk-display", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 1em;
+  color: var(--primary-text);
+  user-select: none;
+}
+
 @media (max-width: 980px) {
   h1 {
     line-height: normal;
