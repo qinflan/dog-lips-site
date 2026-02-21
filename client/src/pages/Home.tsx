@@ -45,7 +45,7 @@ const Home = () => {
             <div className="music-card-text">
               <p className="music-card-date">{new Date(spotifyRelease.releaseDate).toLocaleDateString()}</p>
               <h1 className="music-card-name">{spotifyRelease.name}</h1>
-              <p className="release-info">
+              {/* <p className="release-info">
                 All proceeds from our tapes go straight to{" "}
                 <Link 
                   target="_blank"
@@ -56,11 +56,11 @@ const Home = () => {
                   The New Hampshire Bail Fund
                 </Link> 
                 {" "}helping free people unjustly locked up in ICE detention centers in Dover, NH and Plymouth, MA.
-              </p>
+              </p> */}
               <div className="recent-release-links">
-              <a className="music-card-icon" href="https://strangemono.bandcamp.com/album/danger-forward" target="_blank" rel="noopener noreferrer">
+              {/* <a className="music-card-icon" href="https://strangemono.bandcamp.com/album/danger-forward" target="_blank" rel="noopener noreferrer">
                 <FaBandcamp size={20}/> Buy on Bandcamp
-              </a>
+              </a> */}
               <a className="music-card-icon" href={spotifyRelease.url} target="_blank" rel="noopener noreferrer">
                 <FaSpotify size={20} /> Spotify
               </a>
