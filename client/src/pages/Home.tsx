@@ -1,13 +1,13 @@
 import './Home.css'
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router'
+// import { Link } from 'react-router'
 import ReactPlayer from 'react-player'
 import {
   getMostRecentAppleRelease,
   getMostRecentSpotifyRelease,
 } from '../api/music'
 import type { MostRecentSpotifyRelease, MostRecentAppleRelease } from '../api/music'
-import { FaSpotify, FaApple, FaBandcamp } from "react-icons/fa";
+import { FaSpotify, FaApple } from "react-icons/fa";
 
 
 const Home = () => {
