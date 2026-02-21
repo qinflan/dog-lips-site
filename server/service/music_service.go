@@ -28,7 +28,7 @@ func GetMostRecentRelease(artistID string, client *SpotifyClient) (SpotifyReleas
 	}
 
 	// Get artist releases
-	url := fmt.Sprintf("https://api.spotify.com/v1/artists/%s/albums?include_groups=album,single&limit=1&market=US", artistID)
+	url := fmt.Sprintf("https://api.spotify.com/v1/artists/%s/albums?include_groups=album,single&market=US", artistID)
 	req, _ := http.NewRequestWithContext(context.Background(), "GET", url, nil)
 	req.Header.Set("Authorization", "Bearer "+token)
 
@@ -56,9 +56,14 @@ func GetMostRecentRelease(artistID string, client *SpotifyClient) (SpotifyReleas
 		return SpotifyRelease{}, fmt.Errorf("no releases found for artist %s", artistID)
 	}
 
-	release := result.Items[0]
+	mostRecent := result.Items[0]
+	for _, r := range result.Items[1:] {
+		if r.ReleaseDate > mostRecent.ReleaseDate {
+			mostRecent = r
+		}
+	}
 
 	log.Println("Spotify API call succeeded")
 
-	return release, nil
+	return mostRecent, nil
 }
