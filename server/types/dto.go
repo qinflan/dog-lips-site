@@ -30,7 +30,7 @@ type ShowRequest struct {
 	Venue      string  `json:"venue"`
 	City       string  `json:"city"`
 	State      string  `json:"state"`
-	Address    *string `json:"address"`
+	Address    string  `json:"address"`
 	Time       string  `json:"time"`
 	Price      *string `json:"price"`
 	TicketsURL *string `json:"tickets_url"`
@@ -43,9 +43,26 @@ type ShowResponse struct {
 	Venue      string  `json:"venue"`
 	City       string  `json:"city"`
 	State      string  `json:"state"`
-	Address    *string `json:"address"`
+	Address    string  `json:"address"`
 	Time       string  `json:"time"`
 	Price      *string `json:"price"`
 	TicketsURL *string `json:"tickets_url"`
 	FlyerURL   *string `json:"flyer_url"`
+}
+
+// Merch DTO
+type MerchRequest struct {
+	ID          int64   `json:"id"`
+	Price       *string `json:"price"`
+	Description *string `json:"description"`
+	ImageURL    *string `json:"image_url"`
+	BandcampURL *string `json:"bandcamp_url"`
+}
+
+type MerchResponse struct {
+	ID          int64   `json:"id"`
+	Price       *string `json:"price"`
+	Description *string `json:"description"`
+	ImageURL    *string `json:"image_url"`
+	BandcampURL *string `json:"bandcamp_url"`
 }

@@ -75,7 +75,7 @@ func LoginHandler(db *pgxpool.Pool) http.HandlerFunc {
 func UserHandler(db *pgxpool.Pool) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 
-		claims, ok := r.Context().Value("claims").(jwt.MapClaims)
+		claims, ok := r.Context().Value(middleware.ClaimsKey).(jwt.MapClaims)
 		if !ok || claims == nil {
 			http.Error(w, "Unauthorized", http.StatusUnauthorized)
 			return

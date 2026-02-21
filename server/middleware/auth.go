@@ -14,7 +14,7 @@ import (
 
 type contextKey string
 
-const claimsKey = contextKey("claims")
+const ClaimsKey = contextKey("claims")
 
 func GenerateJWT(userID int64) (string, error) {
 	jwtKey := os.Getenv("JWT_SECRET")
@@ -83,7 +83,7 @@ func RequireAuth(next http.Handler) http.HandlerFunc {
 		}
 
 		// Store claims in context
-		ctx := context.WithValue(r.Context(), claimsKey, claims)
+	ctx := context.WithValue(r.Context(), ClaimsKey, claims)
 		next.ServeHTTP(w, r.WithContext(ctx))
 	})
 }
