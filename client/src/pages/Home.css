@@ -106,12 +106,11 @@
     aspect-ratio: 16 / 9;
     align-items: center;
     justify-content: center;
-    background-color: var(--page-background);
-    border-radius: 15px;
 }
 
-.tour-image {
-    max-width: 600px;
+.tour-flyer {
+    max-width: 400px;
+    display: flex;
 }
 
 .visit-counter {

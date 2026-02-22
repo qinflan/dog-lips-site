@@ -88,7 +88,7 @@ const Home = () => {
       </div>
       <div className="home-section-container">
         <h1>TOUR DATES</h1>
-        <div className="youtube-video-container">
+        <div className="tour-flyer">
         <ReactPlayer src='italy.mov' playing loop muted width="100%" height="100%" />
         </div>
       </div>
