@@ -25,7 +25,20 @@ export const createShow = async (show: {
   return response.data;
 };
 
-export const updateShow = async (id: number, show: any) => {
+export const updateShow = async (
+  id: number,
+  show: {
+    date: string;
+    venue: string;
+    city: string;
+    state: string;
+    address: string;
+    time: string;
+    price?: string;
+    tickets_url?: string;
+    flyer_url?: string;
+  }
+) => {
   const response = await axios.put(`${API_BASE_URL}/admin/shows/${id}`, show, {
     headers: getAuthHeaders(),
   });
@@ -51,7 +64,15 @@ export const createMerch = async (merch: {
   return response.data;
 };
 
-export const updateMerch = async (id: number, merch: any) => {
+export const updateMerch = async (
+  id: number,
+  merch: {
+    price?: string;
+    description?: string;
+    image_url?: string;
+    bandcamp_url?: string;
+  }
+) => {
   const response = await axios.put(`${API_BASE_URL}/admin/merch/${id}`, merch, {
     headers: getAuthHeaders(),
   });
@@ -67,8 +88,8 @@ export const deleteMerch = async (id: number) => {
 // Get presigned URL for file upload (shows or merch)
 export const getPresignedUrl = async (filename: string) => {
   const response = await axios.post(
-    `${API_BASE_URL}/shows/presign?filename=${filename}`,
-    {},
+    `${API_BASE_URL}/shows/presign?filename=${encodeURIComponent(filename)}`,
+    null,
     { headers: getAuthHeaders() }
   );
   return response.data.url;

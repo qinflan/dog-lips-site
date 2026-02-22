@@ -23,18 +23,18 @@ function App() {
     <ScrollToTop/>
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="contact" element={<Contact/>}/>
-        <Route path="shows" element={<Shows/>}/>
-        <Route path="shows/:id" element={<ShowDetails/>}/>
-        <Route path="shop" element={<Shop/>}/>
-        <Route path="admin" element={<Admin/>}/>
+        <Route path="/contact" element={<Contact/>}/>
+        <Route path="/shows" element={<Shows/>}/>
+        <Route path="/shows/:id" element={<ShowDetails/>}/>
+        <Route path="/shop" element={<Shop/>}/>
+        <Route path="/admin" element={<Admin/>}/>
         
-        <Route path="admin/shows" element={
+        <Route path="/admin/shows" element={
         <AuthProvider>
           <ManageShows />
         </AuthProvider>
         }/>
-        <Route path="admin/merch" element={
+        <Route path="/admin/merch" element={
           <AuthProvider>
             <ManageMerch />
           </AuthProvider>
