@@ -1,6 +1,5 @@
 import './Home.css'
 import { useState, useEffect } from 'react'
-// import { Link } from 'react-router'
 import ReactPlayer from 'react-player'
 import {
   getMostRecentAppleRelease,
@@ -47,22 +46,7 @@ const Home = () => {
             <div className="music-card-text">
               <p className="music-card-date">{new Date(spotifyRelease.releaseDate).toLocaleDateString()}</p>
               <h1 className="music-card-name">{spotifyRelease.name}</h1>
-              {/* <p className="release-info">
-                All proceeds from our tapes go straight to{" "}
-                <Link 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="release-info-link" 
-                  to="https://nhbailfund.wordpress.com/"
-                >
-                  The New Hampshire Bail Fund
-                </Link> 
-                {" "}helping free people unjustly locked up in ICE detention centers in Dover, NH and Plymouth, MA.
-              </p> */}
               <div className="recent-release-links">
-              {/* <a className="music-card-icon" href="https://strangemono.bandcamp.com/album/danger-forward" target="_blank" rel="noopener noreferrer">
-                <FaBandcamp size={20}/> Buy on Bandcamp
-              </a> */}
               <a className="music-card-icon" href={spotifyRelease.url} target="_blank" rel="noopener noreferrer">
                 <FaSpotify size={20} /> Spotify
               </a>
@@ -102,10 +86,12 @@ const Home = () => {
         </iframe>
       </div>
       </div>
-      {/* <div className="home-section-container">
+      <div className="home-section-container">
         <h1>TOUR DATES</h1>
-        <img src="/danger_forward_tour.jpeg" alt="tour image" className="tour-image" />
-      </div> */}
+        <div className="youtube-video-container">
+        <ReactPlayer src='italy.mov' playing loop muted width="100%" height="100%" />
+        </div>
+      </div>
       <div className="home-section-container">
         <h1>VOICEMAIL BOMB THREAT</h1>
         <div className="youtube-video-container">
