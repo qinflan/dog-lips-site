@@ -8,7 +8,7 @@ const Admin = () => {
   const auth = useAuth();
   const navigate = useNavigate();
 
-  const { isLoggedIn, login, logout } = auth!;
+  const { isLoggedIn, login } = auth!;
   const [form, setForm] = useState({ username: '', password: '' })
 
 if (!isLoggedIn) {
