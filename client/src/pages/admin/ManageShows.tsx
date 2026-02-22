@@ -1,11 +1,11 @@
-import "./ManageMerch.css"
+import "./ManageShows.css"
 
-const AddShow = () => {
+const ManageShows = () => {
   return (
     <div className="page-content-container">
-        <h1>ADD SHOW</h1>
+        <h1>MANAGE SHOWS</h1>
     </div>
   )
 }
 
-export default AddShow
+export default ManageShows

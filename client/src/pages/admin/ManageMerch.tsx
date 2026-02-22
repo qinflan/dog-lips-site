@@ -1,11 +1,11 @@
 import "./ManageMerch.css"
 
-const AddMerch = () => {
+const ManageMerch = () => {
   return (
     <div className="page-content-container">
-        <h1>ADD MERCH</h1>
+        <h1>MANAGE MERCH</h1>
     </div>
   )
 }
 
-export default AddMerch
+export default ManageMerch

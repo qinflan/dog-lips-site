@@ -1,14 +1,14 @@
 import './Admin.css'
 import { useState } from 'react'
 import { useAuth } from '../../auth/AuthContext.tsx'
+import { useNavigate } from 'react-router'
+import LogoutButton from '../../components/LogoutButton.tsx'
 
 const Admin = () => {
   const auth = useAuth();
-  if (!auth) {
-    // Optionally render an error or fallback UI
-    return <div>User not authenticated</div>;
-  }
-  const { isLoggedIn, login, logout } = auth
+  const navigate = useNavigate();
+
+  const { isLoggedIn, login, logout } = auth!;
   const [form, setForm] = useState({ username: '', password: '' })
 
 if (!isLoggedIn) {
@@ -44,11 +44,16 @@ if (!isLoggedIn) {
 
     return (
     <div className="page-content-container">
-      <nav>
-        <a href="/admin/add-show">add show</a>
-        <a href="/admin/add-merch">add merch item</a>
-        <button onClick={logout}>Logout</button>
-      </nav>
+        <h1>ADMIN</h1>
+        <div className="admin-nav-container">
+          <button className="admin-nav-btn" onClick={() => navigate('/admin/shows')}>
+            manage shows
+          </button>
+          <button className="admin-nav-btn" onClick={() => navigate('/admin/merch')}>
+            manage merch
+          </button>
+          <LogoutButton />
+        </div>
     </div>
   );
 

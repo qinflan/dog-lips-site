@@ -10,7 +10,8 @@ import ShowDetails from './components/ShowDetails'
 import Admin from './pages/admin/Admin'
 import Footer from './components/Footer'
 
-import RequireAuth from './auth/RequireAuth'
+// Admin
+import AuthProvider from './auth/AuthProvider'
 import ManageShows from './pages/admin/ManageShows'
 import ManageMerch from './pages/admin/ManageMerch'
 
@@ -27,15 +28,16 @@ function App() {
         <Route path="shows/:id" element={<ShowDetails/>}/>
         <Route path="shop" element={<Shop/>}/>
         <Route path="admin" element={<Admin/>}/>
-        <Route path="admin/add-show" element={
-        <RequireAuth>
+        
+        <Route path="admin/shows" element={
+        <AuthProvider>
           <ManageShows />
-        </RequireAuth>
+        </AuthProvider>
         }/>
-        <Route path="admin/add-merch" element={
-          <RequireAuth>
+        <Route path="admin/merch" element={
+          <AuthProvider>
             <ManageMerch />
-          </RequireAuth>
+          </AuthProvider>
         }/>
       </Routes>
       <Footer/>
