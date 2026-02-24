@@ -39,7 +39,7 @@ func ListShowsHandler(db *pgxpool.Pool, s3Client *service.S3Client) http.Handler
 	return func(w http.ResponseWriter, r *http.Request) {
 		shows, err := service.ListShows(r.Context(), db)
 		if err != nil {
-			http.Error(w, "Failed to fetch shows", http.StatusInternalServerError)
+			http.Error(w, "Failed to fetch shows: "+err.Error(), http.StatusInternalServerError)
 			return
 		}
 
@@ -93,7 +93,7 @@ func CreateShowHandler(db *pgxpool.Pool) http.HandlerFunc {
 
 		created, err := service.CreateShow(r.Context(), db, show)
 		if err != nil {
-			http.Error(w, "Failed to create show", http.StatusInternalServerError)
+			http.Error(w, "Failed to create show: "+err.Error(), http.StatusInternalServerError)
 			return
 		}
 
@@ -131,7 +131,7 @@ func UpdateShowHandler(db *pgxpool.Pool) http.HandlerFunc {
 
 		updated, err := service.UpdateShow(r.Context(), db, id, show)
 		if err != nil {
-			http.Error(w, "Failed to update show", http.StatusInternalServerError)
+			http.Error(w, "Failed to update show: "+err.Error(), http.StatusInternalServerError)
 			return
 		}
 
@@ -162,7 +162,7 @@ func DeleteShowHandler(db *pgxpool.Pool) http.HandlerFunc {
 		}
 
 		if err := service.DeleteShow(r.Context(), db, id); err != nil {
-			http.Error(w, "Failed to delete show", http.StatusInternalServerError)
+			http.Error(w, "Failed to delete show: "+err.Error(), http.StatusInternalServerError)
 			return
 		}
 

@@ -8,7 +8,6 @@ import (
 
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/service/s3"
-	"github.com/aws/aws-sdk-go-v2/service/s3/types"
 )
 
 type S3Client struct {
@@ -37,7 +36,6 @@ func (s *S3Client) GetPresignedURL(filename string, expiry time.Duration) (strin
 	req, err := psClient.PresignPutObject(context.TODO(), &s3.PutObjectInput{
 		Bucket: &s.bucket,
 		Key:    &filename,
-		ACL:    types.ObjectCannedACLPublicRead,
 	}, s3.WithPresignExpires(expiry))
 
 	if err != nil {
