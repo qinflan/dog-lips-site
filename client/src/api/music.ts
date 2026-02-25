@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = process.env.API_BASE_URL || 'https://dog-lips-site-development.up.railway.app/api';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://dog-lips-site-development.up.railway.app';
 
 interface AppleRelease {
   collectionId: number;
@@ -64,7 +64,7 @@ export const getMostRecentAppleRelease = async (): Promise<MostRecentAppleReleas
 
 export const getMostRecentSpotifyRelease = async (): Promise<MostRecentSpotifyRelease | null> => {
     try {
-        const url = `${API_BASE_URL}/music/recent`;
+        const url = `${API_BASE_URL}/api/music/recent`;
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const response = await axios.get<{release: any}>(url);
         const release = response.data.release;

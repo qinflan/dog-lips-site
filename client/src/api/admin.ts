@@ -1,7 +1,7 @@
 import axios from "axios";
 import type { Show } from "../types/show";
 
-const API_BASE_URL = "https://dog-lips-site-production.up.railway.app";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://dog-lips-site-development.up.railway.app';
 
 const getAuthHeaders = () => {
   const token = sessionStorage.getItem("dog_lips_token");
@@ -11,7 +11,7 @@ const getAuthHeaders = () => {
 // Show API
 export const createShow = async (show: Omit<Show, 'id'>) => {
   try {
-    const response = await axios.post(`${API_BASE_URL}/shows`, show, 
+    const response = await axios.post(`${API_BASE_URL}/api/shows`, show, 
       { headers: getAuthHeaders() }
     );
     return response.data;
@@ -23,7 +23,7 @@ export const createShow = async (show: Omit<Show, 'id'>) => {
 
 export const updateShow = async (show: Show) => {
     try {
-        const response = await axios.put(`${API_BASE_URL}/shows/${show.id}`, show, { headers: getAuthHeaders() });
+        const response = await axios.put(`${API_BASE_URL}/api/shows/${show.id}`, show, { headers: getAuthHeaders() });
         return response.data;
     } catch (error) {
         console.error(`Error updating show with id ${show.id}:`, error);
@@ -33,7 +33,7 @@ export const updateShow = async (show: Show) => {
 
 export const deleteShow = async (id: string) => {
     try {        
-        await axios.delete(`${API_BASE_URL}/shows/${id}`, { headers: getAuthHeaders() });
+        await axios.delete(`${API_BASE_URL}/api/shows/${id}`, { headers: getAuthHeaders() });
     } catch (error) {
         console.error(`Error deleting show with id ${id}:`, error);
         throw error;
@@ -47,7 +47,7 @@ export const createMerch = async (merch: {
   image_url?: string;
   bandcamp_url?: string;
 }) => {
-  const response = await axios.post(`${API_BASE_URL}/admin/merch`, merch, {
+  const response = await axios.post(`${API_BASE_URL}/api/admin/merch`, merch, {
     headers: getAuthHeaders(),
   });
   return response.data;
@@ -62,14 +62,14 @@ export const updateMerch = async (
     bandcamp_url?: string;
   }
 ) => {
-  const response = await axios.put(`${API_BASE_URL}/admin/merch/${id}`, merch, {
+  const response = await axios.put(`${API_BASE_URL}/api/admin/merch/${id}`, merch, {
     headers: getAuthHeaders(),
   });
   return response.data;
 };
 
 export const deleteMerch = async (id: number) => {
-  await axios.delete(`${API_BASE_URL}/admin/merch/${id}`, {
+  await axios.delete(`${API_BASE_URL}/api/admin/merch/${id}`, {
     headers: getAuthHeaders(),
   });
 };
@@ -77,7 +77,7 @@ export const deleteMerch = async (id: number) => {
 // Get presigned URL for file upload (shows or merch)
 export const getPresignedUrl = async (filename: string) => {
   const response = await axios.post(
-    `${API_BASE_URL}/shows/presign?filename=${encodeURIComponent(filename)}`,
+    `${API_BASE_URL}/api/shows/presign?filename=${encodeURIComponent(filename)}`,
     null,
     { headers: getAuthHeaders() }
   );

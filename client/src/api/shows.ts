@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = process.env.API_BASE_URL || 'https://dog-lips-site-development.up.railway.app/api';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:9090';
 
 export const fetchShows = async () => {
   try {
