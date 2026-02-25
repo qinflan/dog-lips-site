@@ -70,7 +70,7 @@
     background-color: var(--page-background);
     transform-origin: top;
     inset: 0;
-    top: 100px;
+    top: 80px;
 }
 
 .mobile-nav-link-container {

@@ -1,4 +1,5 @@
 import axios from "axios";
+import type { Show } from "../types/show";
 
 const API_BASE_URL = "https://dog-lips-site-production.up.railway.app";
 
@@ -8,47 +9,35 @@ const getAuthHeaders = () => {
 };
 
 // Show API
-export const createShow = async (show: {
-  date: string;
-  venue: string;
-  city: string;
-  state: string;
-  address: string;
-  time: string;
-  price?: string;
-  tickets_url?: string;
-  flyer_url?: string;
-}) => {
-  const response = await axios.post(`${API_BASE_URL}/admin/shows`, show, {
-    headers: getAuthHeaders(),
-  });
-  return response.data;
-};
-
-export const updateShow = async (
-  id: number,
-  show: {
-    date: string;
-    venue: string;
-    city: string;
-    state: string;
-    address: string;
-    time: string;
-    price?: string;
-    tickets_url?: string;
-    flyer_url?: string;
+export const createShow = async (show: Omit<Show, 'id'>) => {
+  try {
+    const response = await axios.post(`${API_BASE_URL}/shows`, show, 
+      { headers: getAuthHeaders() }
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error creating show:', error);
+    throw error;
   }
-) => {
-  const response = await axios.put(`${API_BASE_URL}/admin/shows/${id}`, show, {
-    headers: getAuthHeaders(),
-  });
-  return response.data;
 };
 
-export const deleteShow = async (id: number) => {
-  await axios.delete(`${API_BASE_URL}/admin/shows/${id}`, {
-    headers: getAuthHeaders(),
-  });
+export const updateShow = async (show: Show) => {
+    try {
+        const response = await axios.put(`${API_BASE_URL}/shows/${show.id}`, show, { headers: getAuthHeaders() });
+        return response.data;
+    } catch (error) {
+        console.error(`Error updating show with id ${show.id}:`, error);
+        throw error;
+    }
+};
+
+export const deleteShow = async (id: string) => {
+    try {        
+        await axios.delete(`${API_BASE_URL}/shows/${id}`, { headers: getAuthHeaders() });
+    } catch (error) {
+        console.error(`Error deleting show with id ${id}:`, error);
+        throw error;
+    }
 };
 
 // Merch API

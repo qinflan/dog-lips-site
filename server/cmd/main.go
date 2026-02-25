@@ -45,8 +45,17 @@ func main() {
 
 	router := api.NewRouter(app)
 
+	environment := os.Getenv("ENVIRONMENT")
+	var origin string
+
+	if environment == "development" {
+		origin = os.Getenv("ALLOWED_ORIGIN_DEVELOPMENT")
+	} else {
+		origin = os.Getenv("ALLOWED_ORIGIN_PROD")
+	}
+
 	corsRouter := handlers.CORS(
-		handlers.AllowedOrigins([]string{os.Getenv("ALLOWED_ORIGIN_PROD"), os.Getenv("ALLOWED_ORIGIN_DEVELOPMENT")}),
+		handlers.AllowedOrigins([]string{origin}),
 		handlers.AllowedMethods([]string{"GET", "POST", "PUT", "DELETE", "OPTIONS"}),
 		handlers.AllowedHeaders([]string{"Content-Type", "Authorization"}),
 	)(router)
