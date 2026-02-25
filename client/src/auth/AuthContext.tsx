@@ -2,6 +2,8 @@ import { createContext, useState, useContext, useEffect } from "react";
 import type { ReactNode } from "react";
 import axios from "axios";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://dog-lips-site-development.up.railway.app';
+
 type AuthContextType = {
   isLoggedIn: boolean;
   token: string | null;
@@ -22,7 +24,7 @@ export const AuthProvider = ({ children }: { children: ReactNode}) => {
 
   const login = async (username: string, password: string) => {
     try {
-      const response = await axios.post("https://dog-lips-site-production.up.railway.app/auth/login", { 
+      const response = await axios.post(`${API_BASE_URL}/auth/login`, { 
         username, 
         password 
       });
