@@ -11,7 +11,19 @@ const getAuthHeaders = () => {
 // Show API
 export const createShow = async (show: Omit<Show, 'id'>) => {
   try {
-    const response = await axios.post(`${API_BASE_URL}/api/shows`, show, 
+    const payload = {
+      date: show.date,
+      venue: show.venue,
+      city: show.city,
+      state: show.state,
+      time: show.time,
+      address: show.address,
+      price: show.price,
+      ticketsUrl: show.ticketsUrl,
+      flyer: show.flyer,
+    };
+    
+    const response = await axios.post(`${API_BASE_URL}/api/admin/shows`, payload, 
       { headers: getAuthHeaders() }
     );
     return response.data;
@@ -23,7 +35,20 @@ export const createShow = async (show: Omit<Show, 'id'>) => {
 
 export const updateShow = async (show: Show) => {
     try {
-        const response = await axios.put(`${API_BASE_URL}/api/shows/${show.id}`, show, { headers: getAuthHeaders() });
+        // Transform camelCase to snake_case for backend
+        const payload = {
+          date: show.date,
+          venue: show.venue,
+          city: show.city,
+          state: show.state,
+          time: show.time,
+          address: show.address,
+          price: show.price,
+          ticketsUrl: show.ticketsUrl,
+          flyer: show.flyer,
+        };
+        
+        const response = await axios.put(`${API_BASE_URL}/api/admin/shows/${show.id}`, payload, { headers: getAuthHeaders() });
         return response.data;
     } catch (error) {
         console.error(`Error updating show with id ${show.id}:`, error);
@@ -31,9 +56,9 @@ export const updateShow = async (show: Show) => {
     }
 };
 
-export const deleteShow = async (id: string) => {
+export const deleteShow = async (id: number) => {
     try {        
-        await axios.delete(`${API_BASE_URL}/api/shows/${id}`, { headers: getAuthHeaders() });
+        await axios.delete(`${API_BASE_URL}/api/admin/shows/${id}`, { headers: getAuthHeaders() });
     } catch (error) {
         console.error(`Error deleting show with id ${id}:`, error);
         throw error;

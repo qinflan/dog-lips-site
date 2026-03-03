@@ -1,0 +1,13 @@
+.edit-show-btn-container {
+    display: flex;
+    gap: 1rem;
+    white-space: nowrap;
+    margin-top: 20px;
+}
+
+.edit-show-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}

@@ -75,7 +75,7 @@ const Contact = () => {
               onChange={(e) => setBody(e.target.value)}
               required />
 
-            <button type="submit" className="form-submit-btn">
+            <button type="submit" className="form-btn">
               send email
             </button>
 

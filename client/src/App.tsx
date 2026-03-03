@@ -14,6 +14,7 @@ import Footer from './components/Footer'
 import AuthProvider from './auth/AuthProvider'
 import ManageShows from './pages/admin/ManageShows'
 import ManageMerch from './pages/admin/ManageMerch'
+import ManageShow from './pages/admin/ManageShow'
 
 function App() {
 
@@ -37,6 +38,11 @@ function App() {
         <Route path="/admin/merch" element={
           <AuthProvider>
             <ManageMerch />
+          </AuthProvider>
+        }/>
+        <Route path="/admin/shows/:id" element={
+          <AuthProvider>
+            <ManageShow />
           </AuthProvider>
         }/>
       </Routes>

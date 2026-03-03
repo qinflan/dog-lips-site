@@ -2,20 +2,9 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router";
 import "./ShowDetails.css";
-import shows from '../pages/admin/data/ShowData.json'; // local fallback data
-
-
-interface Show {
-  id: number;
-  date: string;
-  time: string;
-  venue: string;
-  city: string;
-  state: string;
-  address: string;
-  ticketsUrl?: string;
-  flyerUrl?: string;
-}
+import type { Show } from '../types/show';
+import { fetchShowById } from "@/api/shows";
+import SnogSpinner from "./SnogSpinner";
 
 const ShowDetails = () => {
   const { id } = useParams<{ id: string }>();
@@ -31,20 +20,15 @@ const ShowDetails = () => {
       setError("");
 
       try {
-        // Simulate fetch from future API
-        // const response = await axios.get<Show>(`/api/shows/${id}`);
-        // Uncomment below when API is ready
-        // setShow(response.data);
-
-        throw new Error("Simulating API error to use fallback");
-      } catch (err) {
-        console.warn("Falling back to local dummy data...");
-        const fallbackShow = shows.find((s) => s.id === parseInt(id || "", 10));
-        if (fallbackShow) {
-          setShow(fallbackShow);
+        if (id) {
+          const data = await fetchShowById(Number(id));
+          setShow(data);
         } else {
-          setError("Show not found.");
+          setError("Invalid show ID.");
         }
+      } catch (err) {
+        console.error("Error fetching show: ", err);
+        setError("Error fetching show.");
       } finally {
         setLoading(false);
       }
@@ -53,9 +37,9 @@ const ShowDetails = () => {
     fetchShow();
   }, [id]);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
-  if (!show) return <p>Show not found.</p>;
+  if (loading) return <div className="page-content-container"><SnogSpinner /></div>;
+  if (error) return <div className="page-content-container"><p>{error}</p></div>;
+  if (!show) return <div className="page-content-container"><p>Show not found.</p></div>;
 
   return (
     <div className="page-content-container">
