@@ -32,8 +32,8 @@ func NewRouter(app *App) *mux.Router {
 	r.HandleFunc("/api/shows", ListShowsHandler(app.DB, app.S3Client)).Methods("GET")
 	r.HandleFunc("/api/shows/{id}", GetShowHandler(app.DB, app.S3Client)).Methods("GET")
 	r.HandleFunc("/api/shows/presign", middleware.RequireAuth(PresignHandler(app.S3Client))).Methods("POST")
-	r.HandleFunc("/api/admin/shows", middleware.RequireAuth(CreateShowHandler(app.DB))).Methods("POST")
-	r.HandleFunc("/api/admin/shows/{id}", middleware.RequireAuth(UpdateShowHandler(app.DB))).Methods("PUT")
+	r.HandleFunc("/api/admin/shows", middleware.RequireAuth(CreateShowHandler(app.DB, app.S3Client))).Methods("POST")
+	r.HandleFunc("/api/admin/shows/{id}", middleware.RequireAuth(UpdateShowHandler(app.DB, app.S3Client))).Methods("PUT")
 	r.HandleFunc("/api/admin/shows/{id}", middleware.RequireAuth(DeleteShowHandler(app.DB))).Methods("DELETE")
 
 	// merch routes

@@ -83,7 +83,7 @@ func GetShowHandler(db *pgxpool.Pool, s3Client *service.S3Client) http.HandlerFu
 	}
 }
 
-func CreateShowHandler(db *pgxpool.Pool) http.HandlerFunc {
+func CreateShowHandler(db *pgxpool.Pool, s3Client *service.S3Client) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		show, err := parseShowRequest(r)
 		if err != nil {
@@ -97,17 +97,10 @@ func CreateShowHandler(db *pgxpool.Pool) http.HandlerFunc {
 			return
 		}
 
-		resp := dto.ShowResponse{
-			ID:         created.ID,
-			Date:       created.Date.Format(showDateLayout),
-			Venue:      created.Venue,
-			City:       created.City,
-			State:      created.State,
-			Address:    created.Address,
-			Time:       created.Time,
-			Price:      created.Price,
-			TicketsURL: created.TicketsURL,
-			FlyerURL:   created.FlyerURL,
+		resp, err := buildShowResponse(*created, s3Client)
+		if err != nil {
+			http.Error(w, "Failed to build response", http.StatusInternalServerError)
+			return
 		}
 
 		w.Header().Set("Content-Type", "application/json")
@@ -115,7 +108,7 @@ func CreateShowHandler(db *pgxpool.Pool) http.HandlerFunc {
 	}
 }
 
-func UpdateShowHandler(db *pgxpool.Pool) http.HandlerFunc {
+func UpdateShowHandler(db *pgxpool.Pool, s3Client *service.S3Client) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		id, err := parseIDParam(mux.Vars(r)["id"])
 		if err != nil {
@@ -135,17 +128,10 @@ func UpdateShowHandler(db *pgxpool.Pool) http.HandlerFunc {
 			return
 		}
 
-		resp := dto.ShowResponse{
-			ID:         updated.ID,
-			Date:       updated.Date.Format(showDateLayout),
-			Venue:      updated.Venue,
-			City:       updated.City,
-			State:      updated.State,
-			Address:    updated.Address,
-			Time:       updated.Time,
-			Price:      updated.Price,
-			TicketsURL: updated.TicketsURL,
-			FlyerURL:   updated.FlyerURL,
+		resp, err := buildShowResponse(*updated, s3Client)
+		if err != nil {
+			http.Error(w, "Failed to build response", http.StatusInternalServerError)
+			return
 		}
 
 		w.Header().Set("Content-Type", "application/json")
@@ -176,7 +162,7 @@ func parseShowRequest(r *http.Request) (*models.Show, error) {
 		return nil, fmt.Errorf("invalid request payload")
 	}
 
-	if req.Date == "" || req.Venue == "" || req.City == "" || req.State == "" || req.Address == "" || req.Time == "" {
+	if req.Date == "" || req.Venue == "" || req.City == "" || req.State == "" || req.Time == "" {
 		return nil, fmt.Errorf("missing required fields")
 	}
 
@@ -194,14 +180,16 @@ func parseShowRequest(r *http.Request) (*models.Show, error) {
 		Time:       req.Time,
 		Price:      req.Price,
 		TicketsURL: req.TicketsURL,
-		FlyerURL:   req.FlyerURL,
+		Flyer:      req.Flyer,
 	}, nil
 }
 
 func buildShowResponse(show models.Show, s3Client *service.S3Client) (dto.ShowResponse, error) {
-	flyerURL := show.FlyerURL
-	if s3Client != nil && show.FlyerURL != nil && *show.FlyerURL != "" {
-		signed, err := s3Client.GetPresignedGetURL(*show.FlyerURL, 15*time.Minute)
+	var flyerURL *string = nil
+
+	// If there's a flyer filename, generate a presigned URL for it
+	if s3Client != nil && show.Flyer != nil && *show.Flyer != "" {
+		signed, err := s3Client.GetPresignedGetURL(*show.Flyer, 15*time.Minute)
 		if err != nil {
 			return dto.ShowResponse{}, err
 		}
@@ -218,6 +206,7 @@ func buildShowResponse(show models.Show, s3Client *service.S3Client) (dto.ShowRe
 		Time:       show.Time,
 		Price:      show.Price,
 		TicketsURL: show.TicketsURL,
+		Flyer:      show.Flyer,
 		FlyerURL:   flyerURL,
 	}, nil
 }

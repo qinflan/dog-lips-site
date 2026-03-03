@@ -8,9 +8,9 @@ type Show struct {
 	Venue      string
 	City       string
 	State      string
-	Address    string
+	Address    *string
 	Time       string
 	Price      *string
 	TicketsURL *string
-	FlyerURL   *string
+	Flyer      *string
 }

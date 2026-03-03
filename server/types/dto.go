@@ -23,18 +23,17 @@ type UserOutput struct {
 	Created  time.Time `json:"created"`
 }
 
-// Show DTO TODO: boiler; edit this
 type ShowRequest struct {
 	ID         int64   `json:"id"`
 	Date       string  `json:"date"`
 	Venue      string  `json:"venue"`
 	City       string  `json:"city"`
 	State      string  `json:"state"`
-	Address    string  `json:"address"`
+	Address    *string `json:"address"`
 	Time       string  `json:"time"`
 	Price      *string `json:"price"`
-	TicketsURL *string `json:"tickets_url"`
-	FlyerURL   *string `json:"flyer_url"`
+	TicketsURL *string `json:"ticketsUrl"`
+	Flyer      *string `json:"flyer"`
 }
 
 type ShowResponse struct {
@@ -43,26 +42,26 @@ type ShowResponse struct {
 	Venue      string  `json:"venue"`
 	City       string  `json:"city"`
 	State      string  `json:"state"`
-	Address    string  `json:"address"`
+	Address    *string `json:"address"`
 	Time       string  `json:"time"`
 	Price      *string `json:"price"`
-	TicketsURL *string `json:"tickets_url"`
-	FlyerURL   *string `json:"flyer_url"`
+	TicketsURL *string `json:"ticketsUrl"`
+	Flyer      *string `json:"flyer"`
+	FlyerURL   *string `json:"flyerUrl"`
 }
 
-// Merch DTO
 type MerchRequest struct {
 	ID          int64   `json:"id"`
 	Price       *string `json:"price"`
 	Description *string `json:"description"`
-	ImageURL    *string `json:"image_url"`
-	BandcampURL *string `json:"bandcamp_url"`
+	ImageURL    *string `json:"imageUrl"`
+	BandcampURL *string `json:"bandcampUrl"`
 }
 
 type MerchResponse struct {
 	ID          int64   `json:"id"`
 	Price       *string `json:"price"`
 	Description *string `json:"description"`
-	ImageURL    *string `json:"image_url"`
-	BandcampURL *string `json:"bandcamp_url"`
+	ImageURL    *string `json:"imageUrl"`
+	BandcampURL *string `json:"bandcampUrl"`
 }
