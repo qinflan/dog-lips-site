@@ -1,0 +1,16 @@
+.custom-file-label {
+  cursor: pointer;
+  text-align: center;
+  display: block;
+}
+
+.edit-show-row {
+  cursor: pointer;
+  display: flex;
+  gap: 1rem;
+}
+
+.edit-show-row:hover {
+  color: var(--accent-text);
+  font-weight: bold;
+}

@@ -36,7 +36,7 @@ if (!isLoggedIn) {
           onChange={e => setForm({ ...form, password: e.target.value })}
           className="admin-login-input"
         />
-        <button type="submit" className='form-submit-btn'>login</button>
+        <button type="submit" className='form-btn'>login</button>
       </form>
       </div>
     );
