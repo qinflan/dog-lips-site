@@ -35,7 +35,6 @@ export const createShow = async (show: Omit<Show, 'id'>) => {
 
 export const updateShow = async (show: Show) => {
     try {
-        // Transform camelCase to snake_case for backend
         const payload = {
           date: show.date,
           venue: show.venue,

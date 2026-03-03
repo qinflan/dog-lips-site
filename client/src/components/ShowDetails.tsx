@@ -59,7 +59,9 @@ const ShowDetails = () => {
           <p><strong>Date:</strong> {show.date}</p>
           <p><strong>Time:</strong> {show.time}</p>
           <p><strong>Venue:</strong> {show.venue}</p>
-          <p><strong>Location:</strong> {show.address}</p>
+          <p><strong>City:</strong> {show.city}</p>
+          <p><strong>State/Country:</strong> {show.state}</p>
+          {show.address && <p><strong>Address:</strong> {show.address}</p>}
           {show.ticketsUrl ? (
             <p className="ticket-link"><a href={show.ticketsUrl} target="_blank" rel="noopener noreferrer">BUY TICKETS</a></p>
           ) : (
