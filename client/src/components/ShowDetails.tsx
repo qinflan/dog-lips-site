@@ -56,12 +56,12 @@ const ShowDetails = () => {
         )}
 
         <div className="show-text-details-container">
-          <p><strong>Date:</strong> {show.date}</p>
-          <p><strong>Time:</strong> {show.time}</p>
-          <p><strong>Venue:</strong> {show.venue}</p>
-          <p><strong>City:</strong> {show.city}</p>
-          <p><strong>State/Country:</strong> {show.state}</p>
-          {show.address && <p><strong>Address:</strong> {show.address}</p>}
+          <p><strong>date:</strong> {show.date}</p>
+          <p><strong>time:</strong> {show.time}</p>
+          <p><strong>venue:</strong> {show.venue}</p>
+          <p><strong>city:</strong> {show.city}</p>
+          <p><strong>state/country:</strong> {show.state}</p>
+          {show.address && <p><strong>address:</strong> {show.address}</p>}
           {show.ticketsUrl ? (
             <p className="ticket-link"><a href={show.ticketsUrl} target="_blank" rel="noopener noreferrer">BUY TICKETS</a></p>
           ) : (
@@ -69,7 +69,7 @@ const ShowDetails = () => {
           }
         </div>
       </div>
-      <p className="go-back-link" onClick={() => navigate(-1)}>← Back to Shows</p>
+      <p className="go-back-link" onClick={() => navigate(-1)}>← back to shows</p>
     </div>
   );
 };
