@@ -62,10 +62,11 @@ const Home = () => {
           </div>
         )}
       </div>
-
+        <div className="hot-link-container">
           <a href="https://candlepinrecords.bandcamp.com/album/4-big-ones" target="_blank" rel="noopener noreferrer">
-            <h1 className="hot-link">GET 4 BIG ONES NOW FROM CANDLEPIN RECORDS</h1> 
+            <h2 className="hot-link">GET 4 BIG ONES NOW FROM CANDLEPIN RECORDS</h2> 
           </a>
+        </div>
 
       <div className="home-section-container">
         <div className="youtube-video-container">
