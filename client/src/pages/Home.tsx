@@ -38,7 +38,7 @@ const Home = () => {
   return (
     <div className="page-content-container">
       <div className="home-section-container">
-        <h1>NEW MUSIC NOW</h1>
+        <h1>NEW MUSIC</h1>
         {loading && <SnogSpinner />}
         {spotifyRelease && appleRelease && !loading && (
           <div className="music-card-container">
@@ -62,6 +62,10 @@ const Home = () => {
           </div>
         )}
       </div>
+
+          <a href="https://candlepinrecords.bandcamp.com/album/4-big-ones" target="_blank" rel="noopener noreferrer">
+            <h1 className="hot-link">GET 4 BIG ONES NOW FROM CANDLEPIN RECORDS</h1> 
+          </a>
 
       <div className="home-section-container">
         <div className="youtube-video-container">
