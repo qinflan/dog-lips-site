@@ -35,9 +35,10 @@
   --header-text: #ffffff;
   --primary-text: #ffffff;
   --secondary-text: #ffffff;
-  --placeholder-text: #66ff3f;
+  --placeholder-text: #ffffff;
   --nav-text:  #ffffff;
-  --accent-text: #66ff3f;
+  --accent-text: #ff3232;
+  --accent-text-ugly-shadow: #ffa7e2;
 
   --toast-success: #66ff3f;
   --toast-error: #ff8aec;
@@ -60,6 +61,7 @@
   --placeholder-text: #000000;
   --nav-text:  #0D0D0D;
   --accent-text: #0004d4;
+  --accent-text-ugly-shadow: #29bbff;
 
   --toast-success: #66ff3f;
   --toast-error: #ff8aec;

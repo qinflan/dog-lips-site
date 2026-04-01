@@ -10,13 +10,14 @@
 .music-card-container {
     display: flex;
     border: 2px solid var(--icon);
-    max-width: 1000px;
-    width: 100%;
+    /* max-width: 1000px;
+    width: 100%; */
+    /* padding: 4em; */
     user-select: none;
 }
 
 .music-card-img {
-    padding: 30px;
+    border-right: 2px solid var(--foreground);
 }
 
 .music-card-name {
@@ -29,6 +30,8 @@
     flex-direction: column;
     gap: 10px;
     justify-content: center;
+    padding-right: 4em;
+    padding-left: 4em;
 }
 
 .music-card-date {
@@ -67,22 +70,19 @@
     width: 100%;
 }
 
-.hot-link-container:hover {
-    background-image: url('/cheetah.jpg');
-}
-
 .hot-link {
     font-size: 2.2em;
     text-decoration: underline;
     padding: 30px;
     text-align: center;
     width: 100%;
+    color: var(--accent-text);
+    text-shadow: 3px 1px 2px var(--accent-text-ugly-shadow);
 }
 
 .hot-link:hover {
-    color: rgb(255, 122, 226);
-    text-shadow: 2px 1px 3px rgb(255, 255, 255);
-    border: 2px solid var(--foreground);
+    color: var(--accent-text);
+    text-shadow: 3px 1px 2px var(--accent-text-ugly-shadow);
 }
 
 .music-card-icon {
