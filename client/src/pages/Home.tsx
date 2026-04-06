@@ -70,7 +70,7 @@ const Home = () => {
 
       <div className="home-section-container">
         <div className="youtube-video-container">
-          <ReactPlayer src='https://www.youtube.com/watch?v=zQxISuwLaO4' controls width="100%" height="100%" />
+          <ReactPlayer src='https://www.youtube.com/watch?v=-bsEj-BndjA&t=17s' controls width="100%" height="100%" />
         </div>
       </div>
 
