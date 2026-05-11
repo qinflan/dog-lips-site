@@ -1,39 +1,42 @@
-import './Home.css'
-import { useState, useEffect } from 'react'
-import ReactPlayer from 'react-player'
+import "./Home.css";
+import { useState, useEffect } from "react";
+import ReactPlayer from "react-player";
 import {
   getMostRecentAppleRelease,
   getMostRecentSpotifyRelease,
-} from '../api/music'
-import type { MostRecentSpotifyRelease, MostRecentAppleRelease } from '../api/music'
+} from "../api/music";
+import type {
+  MostRecentSpotifyRelease,
+  MostRecentAppleRelease,
+} from "../api/music";
 import { FaSpotify, FaApple } from "react-icons/fa";
-import SnogSpinner from '../components/SnogSpinner'
-
+import SnogSpinner from "../components/SnogSpinner";
+import { Link } from "react-router";
 
 const Home = () => {
-  const [spotifyRelease, setSpotifyRelease] = useState<MostRecentSpotifyRelease | null>(null)
-  const [appleRelease, setAppleRelease] = useState<MostRecentAppleRelease | null>(null)
-  const [loading, setLoading] = useState(false)
+  const [spotifyRelease, setSpotifyRelease] =
+    useState<MostRecentSpotifyRelease | null>(null);
+  const [appleRelease, setAppleRelease] =
+    useState<MostRecentAppleRelease | null>(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchReleases = async () => {
-      setLoading(true)
+      setLoading(true);
       try {
-        const spotify = await getMostRecentSpotifyRelease()
-        const apple = await getMostRecentAppleRelease()
-        setSpotifyRelease(spotify)
-        setAppleRelease(apple)
+        const spotify = await getMostRecentSpotifyRelease();
+        const apple = await getMostRecentAppleRelease();
+        setSpotifyRelease(spotify);
+        setAppleRelease(apple);
       } catch (err) {
-        console.error("Error fetching music releases: ", err)
+        console.error("Error fetching music releases: ", err);
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
-    }
+    };
 
-    fetchReleases()
-  }, [])
-
-
+    fetchReleases();
+  }, []);
 
   return (
     <div className="page-content-container">
@@ -42,69 +45,144 @@ const Home = () => {
         {loading && <SnogSpinner />}
         {spotifyRelease && appleRelease && !loading && (
           <div className="music-card-container">
-            <img className="music-card-img" src={spotifyRelease.images[1]?.url || spotifyRelease.images[0]?.url} alt={spotifyRelease.name} />
+            <img
+              className="music-card-img"
+              src={
+                spotifyRelease.images[1]?.url || spotifyRelease.images[0]?.url
+              }
+              alt={spotifyRelease.name}
+            />
             <div className="music-card-text">
-              <p className="music-card-date">{new Date(spotifyRelease.releaseDate).toLocaleDateString()}</p>
+              <p className="music-card-date">
+                {new Date(spotifyRelease.releaseDate).toLocaleDateString()}
+              </p>
               <h1 className="music-card-name">{spotifyRelease.name}</h1>
               <div className="recent-release-links">
-              <a className="music-card-icon" href={spotifyRelease.url} target="_blank" rel="noopener noreferrer">
-                <FaSpotify size={20} /> Spotify
-              </a>
-              {appleRelease && (
-                <>
-                  <a className="music-card-icon" href={appleRelease.url} target="_blank" rel="noopener noreferrer">
-                    <FaApple size={20} /> Apple Music
-                  </a>
-                </>
-              )}
+                <a
+                  className="music-card-icon"
+                  href={spotifyRelease.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaSpotify size={20} /> Spotify
+                </a>
+                {appleRelease && (
+                  <>
+                    <a
+                      className="music-card-icon"
+                      href={appleRelease.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FaApple size={20} /> Apple Music
+                    </a>
+                  </>
+                )}
               </div>
             </div>
           </div>
         )}
       </div>
-        <div className="hot-link-container">
-          <a href="https://candlepinrecords.bandcamp.com/album/4-big-ones" target="_blank" rel="noopener noreferrer">
-            <h2 className="hot-link">GET 4 BIG ONES NOW FROM CANDLEPIN RECORDS</h2> 
-          </a>
-        </div>
-
-      <div className="home-section-container">
-        <div className="youtube-video-container">
-          <ReactPlayer src='https://www.youtube.com/watch?v=-bsEj-BndjA&t=17s' controls width="100%" height="100%" />
-        </div>
+      <div className="hot-link-container">
+        <a
+          href="https://candlepinrecords.bandcamp.com/album/4-big-ones"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <h2 className="hot-link">
+            GET 4 BIG ONES NOW FROM CANDLEPIN RECORDS
+          </h2>
+        </a>
       </div>
 
       <div className="home-section-container">
         <div className="bio-preview-container">
-        <p className="artist-bio">
-          Hailing from Portsmouth, New Hampshire, Dog Lips deliver a raw and relentless blend of punk, hard rock, and new wave on their sophomore album, Danger Forward. These nine tracks tear through themes of warped Americana, B-movie delirium, and the absurdity of modern life, punctuated by the unrelenting drums, confrontational vocals, and sleazy riffage. It’s an album that refuses to sit still. Dog Lips are brash, unapologetic, and wired for maximum impact.
-        <br/> - Strange Mono</p>
+          {/* <p className="artist-bio">
+            Hailing from Portsmouth, New Hampshire, Dog Lips deliver a raw and
+            relentless blend of punk, hard rock, and new wave on their sophomore
+            album, Danger Forward. These nine tracks tear through themes of
+            warped Americana, B-movie delirium, and the absurdity of modern
+            life, punctuated by the unrelenting drums, confrontational vocals,
+            and sleazy riffage. It’s an album that refuses to sit still. Dog
+            Lips are brash, unapologetic, and wired for maximum impact.
+            <br /> - Strange Mono
+          </p> */}
+          <a
+            href="https://strangemono.bandcamp.com/album/danger-forward"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="home-ad-container">
+              <div className="home-ad-content">
+                <h2 className="home-ad-link">BUY A DANGER FORWARD CASETTE</h2>
+                <p className="home-ad-description">
+                  All proceeds from our tapes go straight to{" "}
+                  <Link
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="release-info-link"
+                    to="https://nhbailfund.wordpress.com/"
+                  >
+                    The New Hampshire Bail Fund
+                  </Link>{" "}
+                  helping free people unjustly locked up in ICE detention
+                  centers in Dover, NH and Plymouth, MA.
+                </p>
 
-        <iframe 
-          data-testid="embed-iframe" 
-          style={{"borderRadius": "15px"}}
-          src="https://open.spotify.com/embed/artist/1L23rbDqrblJpid1WJkBVE?utm_source=generator&theme=0" 
-          width="100%" 
-          height="400" 
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-          loading="lazy">
-        </iframe>
+                <img
+                  className="home-ad-img"
+                  src="/strange-mono-casette.jpg"
+                  alt="danger forward casette art"
+                />
+              </div>
+            </div>
+          </a>
+
+          <iframe
+            data-testid="embed-iframe"
+            style={{ borderRadius: "15px" }}
+            src="https://open.spotify.com/embed/artist/1L23rbDqrblJpid1WJkBVE?utm_source=generator&theme=0"
+            width="100%"
+            height="400"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+        </div>
       </div>
-      </div>
+
       <div className="home-section-container">
+        <div className="youtube-video-container">
+          <ReactPlayer
+            src="https://www.youtube.com/watch?v=-bsEj-BndjA&t=17s"
+            controls
+            width="100%"
+            height="100%"
+          />
+        </div>
+      </div>
+      {/* <div className="home-section-container">
         <h1>TOUR DATES</h1>
         <div className="tour-flyer">
         <ReactPlayer src='italy.mov' playing loop muted playsInline width="100%" height="100%" />
         </div>
-      </div>
+      </div> */}
       <div className="home-section-container">
         <h1>VOICEMAIL BOMB THREAT</h1>
         <div className="youtube-video-container">
-          <ReactPlayer src='https://www.youtube.com/watch?v=BZRTEi5O2ck' controls width="100%" height="100%" />
+          <ReactPlayer
+            src="https://www.youtube.com/watch?v=BZRTEi5O2ck"
+            controls
+            width="100%"
+            height="100%"
+          />
         </div>
       </div>
       <div className="visit-counter">
-        <a href="https://www.hitwebcounter.com" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.hitwebcounter.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img
             src="https://hitwebcounter.com/counter/counter.php?page=21328088&style=0011&nbdigits=5&type=page&initCount=0"
             title="Counter Widget"
@@ -114,7 +192,7 @@ const Home = () => {
         </a>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
